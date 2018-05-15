@@ -1,0 +1,611 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> bloc
+Rule 1     bloc -> statement bloc
+Rule 2     bloc -> statement
+Rule 3     statement -> expression SEMICOLON
+Rule 4     statement -> expression
+Rule 5     expression -> expression PLUS expression
+Rule 6     expression -> expression MINUS expression
+Rule 7     expression -> expression TIMES expression
+Rule 8     expression -> expression DIVIDE expression
+Rule 9     expression -> expression EQUALITY expression
+Rule 10    expression -> expression NON_EQUALITY expression
+Rule 11    expression -> MINUS expression
+Rule 12    expression -> LPAREN expression RPAREN
+Rule 13    expression -> NUMBER
+Rule 14    expression -> NAME
+
+Terminals, with rules where they appear
+
+DIVIDE               : 8
+EQUALITY             : 9
+LPAREN               : 12
+MINUS                : 6 11
+NAME                 : 14
+NON_EQUALITY         : 10
+NUMBER               : 13
+PLUS                 : 5
+RPAREN               : 12
+SEMICOLON            : 3
+TIMES                : 7
+error                : 
+
+Nonterminals, with rules where they appear
+
+bloc                 : 1 0
+expression           : 3 4 5 5 6 6 7 7 8 8 9 9 10 10 11 12
+statement            : 1 2
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . bloc
+    (1) bloc -> . statement bloc
+    (2) bloc -> . statement
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression TIMES expression
+    (8) expression -> . expression DIVIDE expression
+    (9) expression -> . expression EQUALITY expression
+    (10) expression -> . expression NON_EQUALITY expression
+    (11) expression -> . MINUS expression
+    (12) expression -> . LPAREN expression RPAREN
+    (13) expression -> . NUMBER
+    (14) expression -> . NAME
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 7
+
+    bloc                           shift and go to state 1
+    statement                      shift and go to state 2
+    expression                     shift and go to state 3
+
+state 1
+
+    (0) S' -> bloc .
+
+
+
+state 2
+
+    (1) bloc -> statement . bloc
+    (2) bloc -> statement .
+    (1) bloc -> . statement bloc
+    (2) bloc -> . statement
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression TIMES expression
+    (8) expression -> . expression DIVIDE expression
+    (9) expression -> . expression EQUALITY expression
+    (10) expression -> . expression NON_EQUALITY expression
+    (11) expression -> . MINUS expression
+    (12) expression -> . LPAREN expression RPAREN
+    (13) expression -> . NUMBER
+    (14) expression -> . NAME
+
+    $end            reduce using rule 2 (bloc -> statement .)
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 7
+
+    statement                      shift and go to state 2
+    bloc                           shift and go to state 8
+    expression                     shift and go to state 3
+
+state 3
+
+    (3) statement -> expression . SEMICOLON
+    (4) statement -> expression .
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . TIMES expression
+    (8) expression -> expression . DIVIDE expression
+    (9) expression -> expression . EQUALITY expression
+    (10) expression -> expression . NON_EQUALITY expression
+
+  ! shift/reduce conflict for MINUS resolved as shift
+    SEMICOLON       shift and go to state 9
+    LPAREN          reduce using rule 4 (statement -> expression .)
+    NUMBER          reduce using rule 4 (statement -> expression .)
+    NAME            reduce using rule 4 (statement -> expression .)
+    $end            reduce using rule 4 (statement -> expression .)
+    PLUS            shift and go to state 10
+    MINUS           shift and go to state 11
+    TIMES           shift and go to state 12
+    DIVIDE          shift and go to state 13
+    EQUALITY        shift and go to state 14
+    NON_EQUALITY    shift and go to state 15
+
+  ! MINUS           [ reduce using rule 4 (statement -> expression .) ]
+
+
+state 4
+
+    (11) expression -> MINUS . expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression TIMES expression
+    (8) expression -> . expression DIVIDE expression
+    (9) expression -> . expression EQUALITY expression
+    (10) expression -> . expression NON_EQUALITY expression
+    (11) expression -> . MINUS expression
+    (12) expression -> . LPAREN expression RPAREN
+    (13) expression -> . NUMBER
+    (14) expression -> . NAME
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 7
+
+    expression                     shift and go to state 16
+
+state 5
+
+    (12) expression -> LPAREN . expression RPAREN
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression TIMES expression
+    (8) expression -> . expression DIVIDE expression
+    (9) expression -> . expression EQUALITY expression
+    (10) expression -> . expression NON_EQUALITY expression
+    (11) expression -> . MINUS expression
+    (12) expression -> . LPAREN expression RPAREN
+    (13) expression -> . NUMBER
+    (14) expression -> . NAME
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 7
+
+    expression                     shift and go to state 17
+
+state 6
+
+    (13) expression -> NUMBER .
+
+    SEMICOLON       reduce using rule 13 (expression -> NUMBER .)
+    PLUS            reduce using rule 13 (expression -> NUMBER .)
+    MINUS           reduce using rule 13 (expression -> NUMBER .)
+    TIMES           reduce using rule 13 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 13 (expression -> NUMBER .)
+    EQUALITY        reduce using rule 13 (expression -> NUMBER .)
+    NON_EQUALITY    reduce using rule 13 (expression -> NUMBER .)
+    LPAREN          reduce using rule 13 (expression -> NUMBER .)
+    NUMBER          reduce using rule 13 (expression -> NUMBER .)
+    NAME            reduce using rule 13 (expression -> NUMBER .)
+    $end            reduce using rule 13 (expression -> NUMBER .)
+    RPAREN          reduce using rule 13 (expression -> NUMBER .)
+
+
+state 7
+
+    (14) expression -> NAME .
+
+    SEMICOLON       reduce using rule 14 (expression -> NAME .)
+    PLUS            reduce using rule 14 (expression -> NAME .)
+    MINUS           reduce using rule 14 (expression -> NAME .)
+    TIMES           reduce using rule 14 (expression -> NAME .)
+    DIVIDE          reduce using rule 14 (expression -> NAME .)
+    EQUALITY        reduce using rule 14 (expression -> NAME .)
+    NON_EQUALITY    reduce using rule 14 (expression -> NAME .)
+    LPAREN          reduce using rule 14 (expression -> NAME .)
+    NUMBER          reduce using rule 14 (expression -> NAME .)
+    NAME            reduce using rule 14 (expression -> NAME .)
+    $end            reduce using rule 14 (expression -> NAME .)
+    RPAREN          reduce using rule 14 (expression -> NAME .)
+
+
+state 8
+
+    (1) bloc -> statement bloc .
+
+    $end            reduce using rule 1 (bloc -> statement bloc .)
+
+
+state 9
+
+    (3) statement -> expression SEMICOLON .
+
+    MINUS           reduce using rule 3 (statement -> expression SEMICOLON .)
+    LPAREN          reduce using rule 3 (statement -> expression SEMICOLON .)
+    NUMBER          reduce using rule 3 (statement -> expression SEMICOLON .)
+    NAME            reduce using rule 3 (statement -> expression SEMICOLON .)
+    $end            reduce using rule 3 (statement -> expression SEMICOLON .)
+
+
+state 10
+
+    (5) expression -> expression PLUS . expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression TIMES expression
+    (8) expression -> . expression DIVIDE expression
+    (9) expression -> . expression EQUALITY expression
+    (10) expression -> . expression NON_EQUALITY expression
+    (11) expression -> . MINUS expression
+    (12) expression -> . LPAREN expression RPAREN
+    (13) expression -> . NUMBER
+    (14) expression -> . NAME
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 7
+
+    expression                     shift and go to state 18
+
+state 11
+
+    (6) expression -> expression MINUS . expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression TIMES expression
+    (8) expression -> . expression DIVIDE expression
+    (9) expression -> . expression EQUALITY expression
+    (10) expression -> . expression NON_EQUALITY expression
+    (11) expression -> . MINUS expression
+    (12) expression -> . LPAREN expression RPAREN
+    (13) expression -> . NUMBER
+    (14) expression -> . NAME
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 7
+
+    expression                     shift and go to state 19
+
+state 12
+
+    (7) expression -> expression TIMES . expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression TIMES expression
+    (8) expression -> . expression DIVIDE expression
+    (9) expression -> . expression EQUALITY expression
+    (10) expression -> . expression NON_EQUALITY expression
+    (11) expression -> . MINUS expression
+    (12) expression -> . LPAREN expression RPAREN
+    (13) expression -> . NUMBER
+    (14) expression -> . NAME
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 7
+
+    expression                     shift and go to state 20
+
+state 13
+
+    (8) expression -> expression DIVIDE . expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression TIMES expression
+    (8) expression -> . expression DIVIDE expression
+    (9) expression -> . expression EQUALITY expression
+    (10) expression -> . expression NON_EQUALITY expression
+    (11) expression -> . MINUS expression
+    (12) expression -> . LPAREN expression RPAREN
+    (13) expression -> . NUMBER
+    (14) expression -> . NAME
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 7
+
+    expression                     shift and go to state 21
+
+state 14
+
+    (9) expression -> expression EQUALITY . expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression TIMES expression
+    (8) expression -> . expression DIVIDE expression
+    (9) expression -> . expression EQUALITY expression
+    (10) expression -> . expression NON_EQUALITY expression
+    (11) expression -> . MINUS expression
+    (12) expression -> . LPAREN expression RPAREN
+    (13) expression -> . NUMBER
+    (14) expression -> . NAME
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 7
+
+    expression                     shift and go to state 22
+
+state 15
+
+    (10) expression -> expression NON_EQUALITY . expression
+    (5) expression -> . expression PLUS expression
+    (6) expression -> . expression MINUS expression
+    (7) expression -> . expression TIMES expression
+    (8) expression -> . expression DIVIDE expression
+    (9) expression -> . expression EQUALITY expression
+    (10) expression -> . expression NON_EQUALITY expression
+    (11) expression -> . MINUS expression
+    (12) expression -> . LPAREN expression RPAREN
+    (13) expression -> . NUMBER
+    (14) expression -> . NAME
+
+    MINUS           shift and go to state 4
+    LPAREN          shift and go to state 5
+    NUMBER          shift and go to state 6
+    NAME            shift and go to state 7
+
+    expression                     shift and go to state 23
+
+state 16
+
+    (11) expression -> MINUS expression .
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . TIMES expression
+    (8) expression -> expression . DIVIDE expression
+    (9) expression -> expression . EQUALITY expression
+    (10) expression -> expression . NON_EQUALITY expression
+
+    SEMICOLON       reduce using rule 11 (expression -> MINUS expression .)
+    PLUS            reduce using rule 11 (expression -> MINUS expression .)
+    MINUS           reduce using rule 11 (expression -> MINUS expression .)
+    TIMES           reduce using rule 11 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 11 (expression -> MINUS expression .)
+    EQUALITY        reduce using rule 11 (expression -> MINUS expression .)
+    NON_EQUALITY    reduce using rule 11 (expression -> MINUS expression .)
+    LPAREN          reduce using rule 11 (expression -> MINUS expression .)
+    NUMBER          reduce using rule 11 (expression -> MINUS expression .)
+    NAME            reduce using rule 11 (expression -> MINUS expression .)
+    $end            reduce using rule 11 (expression -> MINUS expression .)
+    RPAREN          reduce using rule 11 (expression -> MINUS expression .)
+
+  ! PLUS            [ shift and go to state 10 ]
+  ! MINUS           [ shift and go to state 11 ]
+  ! TIMES           [ shift and go to state 12 ]
+  ! DIVIDE          [ shift and go to state 13 ]
+  ! EQUALITY        [ shift and go to state 14 ]
+  ! NON_EQUALITY    [ shift and go to state 15 ]
+
+
+state 17
+
+    (12) expression -> LPAREN expression . RPAREN
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . TIMES expression
+    (8) expression -> expression . DIVIDE expression
+    (9) expression -> expression . EQUALITY expression
+    (10) expression -> expression . NON_EQUALITY expression
+
+    RPAREN          shift and go to state 24
+    PLUS            shift and go to state 10
+    MINUS           shift and go to state 11
+    TIMES           shift and go to state 12
+    DIVIDE          shift and go to state 13
+    EQUALITY        shift and go to state 14
+    NON_EQUALITY    shift and go to state 15
+
+
+state 18
+
+    (5) expression -> expression PLUS expression .
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . TIMES expression
+    (8) expression -> expression . DIVIDE expression
+    (9) expression -> expression . EQUALITY expression
+    (10) expression -> expression . NON_EQUALITY expression
+
+    SEMICOLON       reduce using rule 5 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 5 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 5 (expression -> expression PLUS expression .)
+    LPAREN          reduce using rule 5 (expression -> expression PLUS expression .)
+    NUMBER          reduce using rule 5 (expression -> expression PLUS expression .)
+    NAME            reduce using rule 5 (expression -> expression PLUS expression .)
+    $end            reduce using rule 5 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 5 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 12
+    DIVIDE          shift and go to state 13
+    EQUALITY        shift and go to state 14
+    NON_EQUALITY    shift and go to state 15
+
+  ! TIMES           [ reduce using rule 5 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 5 (expression -> expression PLUS expression .) ]
+  ! EQUALITY        [ reduce using rule 5 (expression -> expression PLUS expression .) ]
+  ! NON_EQUALITY    [ reduce using rule 5 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 10 ]
+  ! MINUS           [ shift and go to state 11 ]
+
+
+state 19
+
+    (6) expression -> expression MINUS expression .
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . TIMES expression
+    (8) expression -> expression . DIVIDE expression
+    (9) expression -> expression . EQUALITY expression
+    (10) expression -> expression . NON_EQUALITY expression
+
+    SEMICOLON       reduce using rule 6 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 6 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 6 (expression -> expression MINUS expression .)
+    LPAREN          reduce using rule 6 (expression -> expression MINUS expression .)
+    NUMBER          reduce using rule 6 (expression -> expression MINUS expression .)
+    NAME            reduce using rule 6 (expression -> expression MINUS expression .)
+    $end            reduce using rule 6 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 6 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 12
+    DIVIDE          shift and go to state 13
+    EQUALITY        shift and go to state 14
+    NON_EQUALITY    shift and go to state 15
+
+  ! TIMES           [ reduce using rule 6 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 6 (expression -> expression MINUS expression .) ]
+  ! EQUALITY        [ reduce using rule 6 (expression -> expression MINUS expression .) ]
+  ! NON_EQUALITY    [ reduce using rule 6 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 10 ]
+  ! MINUS           [ shift and go to state 11 ]
+
+
+state 20
+
+    (7) expression -> expression TIMES expression .
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . TIMES expression
+    (8) expression -> expression . DIVIDE expression
+    (9) expression -> expression . EQUALITY expression
+    (10) expression -> expression . NON_EQUALITY expression
+
+    SEMICOLON       reduce using rule 7 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 7 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 7 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 7 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 7 (expression -> expression TIMES expression .)
+    LPAREN          reduce using rule 7 (expression -> expression TIMES expression .)
+    NUMBER          reduce using rule 7 (expression -> expression TIMES expression .)
+    NAME            reduce using rule 7 (expression -> expression TIMES expression .)
+    $end            reduce using rule 7 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 7 (expression -> expression TIMES expression .)
+    EQUALITY        shift and go to state 14
+    NON_EQUALITY    shift and go to state 15
+
+  ! EQUALITY        [ reduce using rule 7 (expression -> expression TIMES expression .) ]
+  ! NON_EQUALITY    [ reduce using rule 7 (expression -> expression TIMES expression .) ]
+  ! PLUS            [ shift and go to state 10 ]
+  ! MINUS           [ shift and go to state 11 ]
+  ! TIMES           [ shift and go to state 12 ]
+  ! DIVIDE          [ shift and go to state 13 ]
+
+
+state 21
+
+    (8) expression -> expression DIVIDE expression .
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . TIMES expression
+    (8) expression -> expression . DIVIDE expression
+    (9) expression -> expression . EQUALITY expression
+    (10) expression -> expression . NON_EQUALITY expression
+
+    SEMICOLON       reduce using rule 8 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 8 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 8 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 8 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 8 (expression -> expression DIVIDE expression .)
+    LPAREN          reduce using rule 8 (expression -> expression DIVIDE expression .)
+    NUMBER          reduce using rule 8 (expression -> expression DIVIDE expression .)
+    NAME            reduce using rule 8 (expression -> expression DIVIDE expression .)
+    $end            reduce using rule 8 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 8 (expression -> expression DIVIDE expression .)
+    EQUALITY        shift and go to state 14
+    NON_EQUALITY    shift and go to state 15
+
+  ! EQUALITY        [ reduce using rule 8 (expression -> expression DIVIDE expression .) ]
+  ! NON_EQUALITY    [ reduce using rule 8 (expression -> expression DIVIDE expression .) ]
+  ! PLUS            [ shift and go to state 10 ]
+  ! MINUS           [ shift and go to state 11 ]
+  ! TIMES           [ shift and go to state 12 ]
+  ! DIVIDE          [ shift and go to state 13 ]
+
+
+state 22
+
+    (9) expression -> expression EQUALITY expression .
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . TIMES expression
+    (8) expression -> expression . DIVIDE expression
+    (9) expression -> expression . EQUALITY expression
+    (10) expression -> expression . NON_EQUALITY expression
+
+    SEMICOLON       reduce using rule 9 (expression -> expression EQUALITY expression .)
+    PLUS            reduce using rule 9 (expression -> expression EQUALITY expression .)
+    MINUS           reduce using rule 9 (expression -> expression EQUALITY expression .)
+    TIMES           reduce using rule 9 (expression -> expression EQUALITY expression .)
+    DIVIDE          reduce using rule 9 (expression -> expression EQUALITY expression .)
+    EQUALITY        reduce using rule 9 (expression -> expression EQUALITY expression .)
+    NON_EQUALITY    reduce using rule 9 (expression -> expression EQUALITY expression .)
+    LPAREN          reduce using rule 9 (expression -> expression EQUALITY expression .)
+    NUMBER          reduce using rule 9 (expression -> expression EQUALITY expression .)
+    NAME            reduce using rule 9 (expression -> expression EQUALITY expression .)
+    $end            reduce using rule 9 (expression -> expression EQUALITY expression .)
+    RPAREN          reduce using rule 9 (expression -> expression EQUALITY expression .)
+
+  ! PLUS            [ shift and go to state 10 ]
+  ! MINUS           [ shift and go to state 11 ]
+  ! TIMES           [ shift and go to state 12 ]
+  ! DIVIDE          [ shift and go to state 13 ]
+  ! EQUALITY        [ shift and go to state 14 ]
+  ! NON_EQUALITY    [ shift and go to state 15 ]
+
+
+state 23
+
+    (10) expression -> expression NON_EQUALITY expression .
+    (5) expression -> expression . PLUS expression
+    (6) expression -> expression . MINUS expression
+    (7) expression -> expression . TIMES expression
+    (8) expression -> expression . DIVIDE expression
+    (9) expression -> expression . EQUALITY expression
+    (10) expression -> expression . NON_EQUALITY expression
+
+    SEMICOLON       reduce using rule 10 (expression -> expression NON_EQUALITY expression .)
+    PLUS            reduce using rule 10 (expression -> expression NON_EQUALITY expression .)
+    MINUS           reduce using rule 10 (expression -> expression NON_EQUALITY expression .)
+    TIMES           reduce using rule 10 (expression -> expression NON_EQUALITY expression .)
+    DIVIDE          reduce using rule 10 (expression -> expression NON_EQUALITY expression .)
+    EQUALITY        reduce using rule 10 (expression -> expression NON_EQUALITY expression .)
+    NON_EQUALITY    reduce using rule 10 (expression -> expression NON_EQUALITY expression .)
+    LPAREN          reduce using rule 10 (expression -> expression NON_EQUALITY expression .)
+    NUMBER          reduce using rule 10 (expression -> expression NON_EQUALITY expression .)
+    NAME            reduce using rule 10 (expression -> expression NON_EQUALITY expression .)
+    $end            reduce using rule 10 (expression -> expression NON_EQUALITY expression .)
+    RPAREN          reduce using rule 10 (expression -> expression NON_EQUALITY expression .)
+
+  ! PLUS            [ shift and go to state 10 ]
+  ! MINUS           [ shift and go to state 11 ]
+  ! TIMES           [ shift and go to state 12 ]
+  ! DIVIDE          [ shift and go to state 13 ]
+  ! EQUALITY        [ shift and go to state 14 ]
+  ! NON_EQUALITY    [ shift and go to state 15 ]
+
+
+state 24
+
+    (12) expression -> LPAREN expression RPAREN .
+
+    SEMICOLON       reduce using rule 12 (expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 12 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 12 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 12 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 12 (expression -> LPAREN expression RPAREN .)
+    EQUALITY        reduce using rule 12 (expression -> LPAREN expression RPAREN .)
+    NON_EQUALITY    reduce using rule 12 (expression -> LPAREN expression RPAREN .)
+    LPAREN          reduce using rule 12 (expression -> LPAREN expression RPAREN .)
+    NUMBER          reduce using rule 12 (expression -> LPAREN expression RPAREN .)
+    NAME            reduce using rule 12 (expression -> LPAREN expression RPAREN .)
+    $end            reduce using rule 12 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 12 (expression -> LPAREN expression RPAREN .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for MINUS in state 3 resolved as shift
