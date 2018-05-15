@@ -10,6 +10,7 @@ import ply.yacc as yacc
 tokens = (
     'NAME', 'NUMBER',
     'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'EQUALITY', 'NON_EQUALITY',
+    'EQUAL',
     'LPAREN', 'RPAREN', 'SEMICOLON',
 )
 
@@ -26,7 +27,7 @@ t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
 t_SEMICOLON = r';'
 t_EQUALITY = '=='
 t_NON_EQUALITY = '!='
-# t_EQUAL = r'='
+t_EQUAL = r'='
 
 
 def t_NUMBER(t):
@@ -74,6 +75,13 @@ def p_bloc(p):
         p[0] = p[2]
 
     print(eval(p[0]))
+    # print(eval(p[0]))
+
+
+def p_statement_assign(p):
+    '''statement : NAME EQUAL expression SEMICOLON
+                 | NAME EQUAL expression'''
+    p[0] = ('=', p[1], p[3])
     # print(eval(p[0]))
 
 

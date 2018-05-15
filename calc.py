@@ -81,7 +81,7 @@ def p_statement_expr(p):
 def p_expression_bool(p):
     ''' statement : expression EQUALITY expression
     | expression NON_EQUALITY expression '''
-    if (p[2] == '=='):
+    if p[2] == '==':
         p[0] = ('==', p[1], p[3])
     else:
         p[0] = ('!=', p[1], p[3])

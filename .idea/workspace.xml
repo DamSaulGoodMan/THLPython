@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e85f67ee-afd6-42ab-b220-fa72e7463300" name="Default" comment="" />
+    <list default="true" id="e85f67ee-afd6-42ab-b220-fa72e7463300" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calc.py" beforeDir="false" afterPath="$PROJECT_DIR$/calc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calc1.py" beforeDir="false" afterPath="$PROJECT_DIR$/calc1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.out" beforeDir="false" afterPath="$PROJECT_DIR$/parser.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsetab.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,14 +23,14 @@
     <favorites_list name="Compilateur" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.30152026">
+    <splitter split-orientation="horizontal" split-proportion="0.5026502">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="calc.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/calc.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="217">
-                  <caret line="117" column="20" lean-forward="true" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="20" />
+                <state relative-caret-position="216">
+                  <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
                   <folding>
                     <element signature="e#211#232#0" expanded="true" />
                   </folding>
@@ -39,8 +45,8 @@
           <file leaf-file-name="calc1.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/calc1.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="148">
-                  <caret line="58" column="41" lean-forward="true" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+                <state relative-caret-position="234">
+                  <caret line="82" column="43" lean-forward="true" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
                   <folding>
                     <element signature="e#211#232#0" expanded="true" />
                   </folding>
@@ -51,6 +57,9 @@
         </leaf>
       </split-second>
     </splitter>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -68,7 +77,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="683" />
     <option name="height" value="728" />
   </component>
@@ -77,7 +86,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -89,6 +97,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -196,6 +205,14 @@
       <option name="presentableId" value="Default" />
       <updated>1522757182677</updated>
     </task>
+    <task id="LOCAL-00001" summary="eval(block) add">
+      <created>1526395431124</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1526395431124</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -208,20 +225,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11904762" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32894737" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13095239" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32838285" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32838285" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16336633" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27887788" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.08580858" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.29769737" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.2970297" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -239,6 +255,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="eval(block) add" />
+    <option name="LAST_COMMIT_MESSAGE" value="eval(block) add" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="6" />
@@ -250,6 +270,26 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/calc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1972">
+          <caret line="117" column="20" lean-forward="true" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="20" />
+          <folding>
+            <element signature="e#211#232#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calc1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="58" column="41" lean-forward="true" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+          <folding>
+            <element signature="e#211#232#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/calc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1394">
@@ -490,14 +530,14 @@
     <entry file="file://C:/Program Files/Python36/Lib/site-packages/ply/yacc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="332" selection-start-line="332" selection-end-line="332" />
+          <caret line="3431" selection-start-line="3431" selection-end-line="3431" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/calc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="117" column="20" lean-forward="true" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="20" />
+        <state relative-caret-position="216">
+          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
           <folding>
             <element signature="e#211#232#0" expanded="true" />
           </folding>
@@ -506,8 +546,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/calc1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="58" column="41" lean-forward="true" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+        <state relative-caret-position="234">
+          <caret line="82" column="43" lean-forward="true" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
           <folding>
             <element signature="e#211#232#0" expanded="true" />
           </folding>
