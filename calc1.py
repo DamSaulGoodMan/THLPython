@@ -65,14 +65,23 @@ names = {}
 
 
 def p_bloc(p):
-    '''bloc : statement bloc
+    '''bloc : bloc statement
      | statement '''
+
+    if len(p) == 2:
+        p[0] = p[1]
+    else:
+        p[0] = p[2]
+
+    print(eval(p[0]))
+    # print(eval(p[0]))
 
 
 def p_statement_expr(p):
     '''statement : expression SEMICOLON
                  | expression'''
-    print(eval(p[1]))
+    p[0] = p[1]
+    # print(eval(p[1]))
 
 
 def p_expression_binop(p):
