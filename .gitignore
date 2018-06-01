@@ -1,3 +1,5 @@
 .idea
 __pycache__
 .idea/*
+parsertab.py
+parser.out
