@@ -33,8 +33,8 @@ tokens = [
     'PLUS', 'MINUS', 'TIMES', 'DIVIDE',
     'EQUALITY', 'NON_EQUALITY', 'LESSTHAN_AND_EQUALITY', 'GREATERTHAN_AND_EQUALITY', 'LESSTHAN', 'GREATERTHAN',
     'LPAREN', 'RPAREN', 'SEMICOLON', 'LBRACKET', 'RBRACKET',
-    'NAME'
-    # ,'ID'
+    'NAME',
+    'ID'
 ] + list(reserved.values())
 
 # Tokens
@@ -72,16 +72,10 @@ def t_NUMBER(t):
     return t
 
 
-def t_NAME(t):
+def t_ID(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
     t.type = reserved.get(t.value, 'ID')    # Check for reserved words
     return t
-
-
-# def t_ID(t):
-    # r'[a-zA-Z_][a-zA-Z_0-9]*'
-    # t.type = reserved.get(t.value, 'ID')    # Check for reserved words
-    # return t
 
 
 def t_newline(t):
@@ -109,30 +103,6 @@ precedence = (
 names = {}
 
 
-def p_statement(p):
-    '''statement : IF expression body
-                 | IF expression body else'''
-
-    print("size", len(p))
-    if len(p) == 4 & eval(p[2]) != 0:
-        p[0] = p[3]
-    elif len(p) == 5:
-        if eval(p[2]) != 0:
-            p[0] = p[3]
-        else:
-            p[0] = p[4]
-
-    print("if", eval(p[0]))
-
-
-def p_body(p):
-    'body : LBRACKET bloc RBRACKET'
-
-    p[0] = p[2]
-
-    print("body")
-
-
 def p_bloc(p):
     '''bloc : bloc statement
             | statement '''
@@ -142,7 +112,23 @@ def p_bloc(p):
     else:
         p[0] = p[1]
 
-    print("ev", eval(p[0]))
+    print(eval(p[0]))
+
+
+def p_statement_if(p):
+    '''statement : IF expression body
+                 | IF expression body else'''
+
+    #if len(p) == 4:
+    p[0] = p[1]
+
+
+def p_body(p):
+    'body : LBRACKET bloc RBRACKET'
+
+    p[0] = p[2]
+
+    # print("body")
 
 
 def p_else(p):
@@ -234,7 +220,18 @@ def eval(p):
         elif p[0] == '=':
             a = eval(p[1])
             names[a] = eval(p[2])
-            return names.get(a);
+            return names.get(a)
+        elif p[0] == 'si':
+            print(p[1])
+            print(p[2])
+            print(p[3])
+            if eval(p[1]) <= 0:
+                return eval(p[2])
+            else:
+                return eval(p[3])
+        elif p[0] == 'aliud':
+            return eval(p[1])
+
     else:
         return p
 
