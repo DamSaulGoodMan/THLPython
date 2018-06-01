@@ -25,7 +25,6 @@ import ply.yacc as yacc
 reserved = {
    'si': 'IF',
    'aliud': 'ELSE',
-   'sinaliter': 'ELSEIF'
 }
 
 tokens = [
@@ -33,8 +32,7 @@ tokens = [
     'PLUS', 'MINUS', 'TIMES', 'DIVIDE',
     'EQUALITY', 'NON_EQUALITY', 'LESSTHAN_AND_EQUALITY', 'GREATERTHAN_AND_EQUALITY', 'LESSTHAN', 'GREATERTHAN',
     'LPAREN', 'RPAREN', 'SEMICOLON', 'LBRACKET', 'RBRACKET',
-    'NAME',
-    'ID'
+    'NAME'
 ] + list(reserved.values())
 
 # Tokens
@@ -72,9 +70,9 @@ def t_NUMBER(t):
     return t
 
 
-def t_ID(t):
+def t_reserved(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
-    t.type = reserved.get(t.value, 'ID')    # Check for reserved words
+    t.type = reserved.get(t.value, 'NAME')  # Check for reserved words
     return t
 
 
@@ -92,8 +90,9 @@ def t_error(t):
 lex.lex()
 
 # Precedence rules for the arithmetic operators
+# nonassoc : do not allowed to put many of this token on the same sentence
 precedence = (
-    ('left', 'EQUALITY', 'NON_EQUALITY', 'LESSTHAN', 'GREATERTHAN', 'LESSTHAN_AND_EQUALITY', 'GREATERTHAN_AND_EQUALITY'),
+    ('nonassoc', 'EQUALITY', 'NON_EQUALITY', 'LESSTHAN', 'GREATERTHAN', 'LESSTHAN_AND_EQUALITY', 'GREATERTHAN_AND_EQUALITY'),
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE'),
     ('right', 'UMINUS')
@@ -115,14 +114,6 @@ def p_bloc(p):
     print(eval(p[0]))
 
 
-def p_statement_if(p):
-    '''statement : IF expression body
-                 | IF expression body else'''
-
-    #if len(p) == 4:
-    p[0] = p[1]
-
-
 def p_body(p):
     'body : LBRACKET bloc RBRACKET'
 
@@ -131,14 +122,33 @@ def p_body(p):
     # print("body")
 
 
-def p_else(p):
-    '''else : ELSE body
-            | ELSEIF expression body else'''
+"""def p_statement_condition(p):
+    'statement : condition'"""
+
+
+# def p_condition(p):
+def p_statement_condition(p):
+    '''statement : IF expression body
+                 | IF expression body ELSE body
+                 | IF expression body ELSE statement'''
+
+    if len(p) == 4:
+        p[0] = (p[1], p[2], p[3])
+    elif len(p) == 6:
+        p[0] = (p[1], p[2], p[3], p[4], p[5])
+    else:
+        p[0] = (p[1], p[2], p[3], p[4], p[5])
+
+
+"""def p_elif(p):
+    'elif : ELSE condition'
 
     if len(p) == 3:
-        p[0] = p[2]
+        p[0] = (p[1], p[2])
+    elif len(p) == 6:
+        p[0] = (p[1], p[2])
     else:
-        p[0] = p[4]
+        p[0] = (p[1], p[2], p[3], p[4])"""
 
 
 def p_statement_assign(p):
@@ -195,7 +205,8 @@ def p_expression_binop(p):
 
 
 def eval(p):
-    print(p)
+    print("p ->", p)
+
     if type(p) == tuple:
         if p[0] == '+':
             return eval(p[1]) + eval(p[2])
@@ -205,6 +216,7 @@ def eval(p):
             return eval(p[1]) * eval(p[2])
         elif p[0] == '/':
             return eval(p[1]) / eval(p[2])
+
         elif p[0] == '==':
             return eval(p[1]) == eval(p[2])
         elif p[0] == '!=':
@@ -217,21 +229,23 @@ def eval(p):
             return eval(p[1]) <= eval(p[2])
         elif p[0] == '>=':
             return eval(p[1]) >= eval(p[2])
+
         elif p[0] == '=':
             a = eval(p[1])
             names[a] = eval(p[2])
             return names.get(a)
+
+# @TODO here come the problem...
+
         elif p[0] == 'si':
-            print(p[1])
-            print(p[2])
-            print(p[3])
-            if eval(p[1]) <= 0:
+            if p[1] == 'aliud':
+                return eval(p[1])
+            elif eval(p[1]) > (0 | True):
                 return eval(p[2])
-            else:
+            elif len(p) >= 4:
                 return eval(p[3])
         elif p[0] == 'aliud':
-            return eval(p[1])
-
+                return eval(p[1])
     else:
         return p
 
