@@ -22,20 +22,20 @@
 import ply.lex as lex
 import ply.yacc as yacc
 
-reserved = {
-   'si': 'IF',
-   'aliud': 'ELSE',
-   'sinaliter': 'ELSEIF'
-}
+# reserved = {
+#    'si': 'IF',
+#    'aliud': 'ELSE',
+#    'sinaliter': 'ELSEIF'
+# }
 
 tokens = [
     'NUMBER', 'EQUAL',
     'PLUS', 'MINUS', 'TIMES', 'DIVIDE',
-    'EQUALITY', 'NON_EQUALITY', 'LESSTHAN_AND_EQUALITY', 'GREATERTHAN_AND_EQUALITY', 'LESSTHAN', 'GREATERTHAN',
+    'EQUALITY', 'NON_EQUALITY', 'LESSTHAN_AND_EQUALITY', 'GREATERTHAN_AND_EQUALITY', 'LESSTHAN', 'GREATERTHAN', 'IF', 'ELSE', 'ELSEIF',
     'LPAREN', 'RPAREN', 'SEMICOLON', 'LBRACKET', 'RBRACKET',
-    'NAME',
-    'ID'
-] + list(reserved.values())
+    'NAME'
+]
+         # + list(reserved.values())
 
 # Tokens
 
@@ -53,6 +53,10 @@ t_LESSTHAN = r'<'
 t_GREATERTHAN = r'>'
 t_LESSTHAN_AND_EQUALITY = r'<='
 t_GREATERTHAN_AND_EQUALITY = r'>='
+
+t_IF = r'IF'
+t_ELSE = r'ELSE'
+t_ELSEIF = r'ELSEIF'
 
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
@@ -72,9 +76,9 @@ def t_NUMBER(t):
     return t
 
 
-def t_ID(t):
+def t_NAME(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
-    t.type = reserved.get(t.value, 'ID')    # Check for reserved words
+    # t.type = reserved.get(t.value, 'ID')    # Check for reserved words
     return t
 
 
@@ -93,6 +97,7 @@ lex.lex()
 
 # Precedence rules for the arithmetic operators
 precedence = (
+    ('left', 'IF', 'ELSE', 'ELSEIF'),
     ('left', 'EQUALITY', 'NON_EQUALITY', 'LESSTHAN', 'GREATERTHAN', 'LESSTHAN_AND_EQUALITY', 'GREATERTHAN_AND_EQUALITY'),
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE'),
@@ -116,24 +121,24 @@ def p_bloc(p):
 
 
 def p_statement_if(p):
-    '''statement : IF expression body
-                 | IF expression body else'''
+    '''statement : IF expression LBRACKET bloc RBRACKET
+                 | IF expression LBRACKET bloc RBRACKET else'''
 
     #if len(p) == 4:
     p[0] = p[1]
 
 
-def p_body(p):
-    'body : LBRACKET bloc RBRACKET'
-
-    p[0] = p[2]
-
-    # print("body")
+# def p_body(p):
+#     'body : LBRACKET bloc RBRACKET'
+#
+#     p[0] = p[2]
+#
+#     # print("body")
 
 
 def p_else(p):
-    '''else : ELSE body
-            | ELSEIF expression body else'''
+    '''else : ELSE expression LBRACKET bloc RBRACKET
+            | ELSEIF expression expression LBRACKET bloc RBRACKET else'''
 
     if len(p) == 3:
         p[0] = p[2]

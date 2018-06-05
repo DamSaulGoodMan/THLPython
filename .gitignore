@@ -1,4 +1,4 @@
-.idea
+.idea/*
 parser.out
 paersetab.py
 __pycache__/*
