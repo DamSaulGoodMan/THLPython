@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e85f67ee-afd6-42ab-b220-fa72e7463300" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Compilateur.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Compilateur.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/interpreterLanguageLatin.py" beforeDir="false" afterPath="$PROJECT_DIR$/interpreterLanguageLatin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser.out" beforeDir="false" afterPath="$PROJECT_DIR$/parser.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsetab.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +21,8 @@
       <file leaf-file-name="parser.out" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.out">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21080">
-              <caret line="1320" selection-start-line="1320" selection-end-line="1320" />
+            <state relative-caret-position="21437">
+              <caret line="1309" selection-start-line="1309" selection-end-line="1309" />
             </state>
           </provider>
         </entry>
@@ -33,11 +30,8 @@
       <file leaf-file-name="interpreterLanguageLatin.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/interpreterLanguageLatin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="237" column="32" selection-start-line="237" selection-start-column="32" selection-end-line="237" selection-end-column="32" />
-              <folding>
-                <element signature="e#880#901#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="151">
+              <caret line="228" column="33" lean-forward="true" selection-start-line="228" selection-start-column="33" selection-end-line="228" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -45,8 +39,8 @@
       <file leaf-file-name="calc(version_theo).py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/calc(version_theo).py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="102" column="32" lean-forward="true" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
+            <state relative-caret-position="1717">
+              <caret line="102" column="32" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -55,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/parsetab.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="612">
-              <caret line="36" column="78" selection-start-line="36" selection-start-column="78" selection-end-line="36" selection-end-column="78" />
+              <caret line="37" column="78" selection-start-line="37" selection-start-column="78" selection-end-line="37" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -84,8 +78,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
+    <option name="x" value="1257" />
+    <option name="y" value="3" />
     <option name="width" value="685" />
     <option name="height" value="730" />
   </component>
@@ -247,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527584597488</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="IF are OK but ELSE dans IF ELSE have a little bug :)&#10;In an other part, all statement in block are parse before conditions and i don't know how to restrict theirs parsing :/">
+      <created>1527889685112</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1527889685112</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -263,16 +264,16 @@
     <frame x="-7" y="-7" width="1550" height="840" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21083939" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21017845" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.42329547" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40625" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.27982953" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.41477272" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -303,11 +304,24 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="eval(block) add" />
     <MESSAGE value="Tentative d'ajout du &quot;si&quot; mais sans succes :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tentative d'ajout du &quot;si&quot; mais sans succes :)" />
+    <MESSAGE value="IF are OK but ELSE dans IF ELSE have a little bug :)&#10;In an other part, all statement in block are parse before conditions and i don't know how to restrict theirs parsing :/" />
+    <option name="LAST_COMMIT_MESSAGE" value="IF are OK but ELSE dans IF ELSE have a little bug :)&#10;In an other part, all statement in block are parse before conditions and i don't know how to restrict theirs parsing :/" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="32" />
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/interpreterLanguageLatin.py</url>
+          <line>132</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/interpreterLanguageLatin.py</url>
+          <line>130</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="41" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -610,45 +624,36 @@
     <entry file="file://$PROJECT_DIR$/parsetab.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
-          <caret line="36" column="78" selection-start-line="36" selection-start-column="78" selection-end-line="36" selection-end-column="78" />
+          <caret line="37" column="78" selection-start-line="37" selection-start-column="78" selection-end-line="37" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calc(version_theo).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1717">
+          <caret line="102" column="32" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../THLPython/interpreterLanguageLatin.py" />
+    <entry file="file://$PROJECT_DIR$/parser.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21437">
+          <caret line="1309" selection-start-line="1309" selection-end-line="1309" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../TP PLY/venv/Lib/site-packages/ply/yacc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
-          <caret line="242" selection-start-line="242" selection-end-line="242" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calc(version_theo).py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="102" column="32" lean-forward="true" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../THLPython/interpreterLanguageLatin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="197" column="4" lean-forward="true" selection-start-line="197" selection-start-column="4" selection-end-line="197" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parser.out">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21080">
-          <caret line="1320" selection-start-line="1320" selection-end-line="1320" />
+          <caret line="332" selection-start-line="332" selection-end-line="332" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/interpreterLanguageLatin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="237" column="32" selection-start-line="237" selection-start-column="32" selection-end-line="237" selection-end-column="32" />
-          <folding>
-            <element signature="e#880#901#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="151">
+          <caret line="228" column="33" lean-forward="true" selection-start-line="228" selection-start-column="33" selection-end-line="228" selection-end-column="33" />
         </state>
       </provider>
     </entry>

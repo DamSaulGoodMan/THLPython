@@ -122,10 +122,6 @@ def p_body(p):
     # print("body")
 
 
-"""def p_statement_condition(p):
-    'statement : condition'"""
-
-
 # def p_condition(p):
 def p_statement_condition(p):
     '''statement : IF expression body
@@ -135,20 +131,7 @@ def p_statement_condition(p):
     if len(p) == 4:
         p[0] = (p[1], p[2], p[3])
     elif len(p) == 6:
-        p[0] = (p[1], p[2], p[3], p[4], p[5])
-    else:
-        p[0] = (p[1], p[2], p[3], p[4], p[5])
-
-
-"""def p_elif(p):
-    'elif : ELSE condition'
-
-    if len(p) == 3:
-        p[0] = (p[1], p[2])
-    elif len(p) == 6:
-        p[0] = (p[1], p[2])
-    else:
-        p[0] = (p[1], p[2], p[3], p[4])"""
+        p[0] = (p[1], p[2], p[3], (p[4], p[5]))
 
 
 def p_statement_assign(p):
@@ -235,17 +218,23 @@ def eval(p):
             names[a] = eval(p[2])
             return names.get(a)
 
-# @TODO here come the problem...
+# @TODO left one bug, the result of the block is not display
 
         elif p[0] == 'si':
-            if p[1] == 'aliud':
-                return eval(p[1])
-            elif eval(p[1]) > (0 | True):
+            # print("[SI]")
+            tmp = eval(p[1])
+
+            if tmp is True:
+                # print("[TRUE]")
                 return eval(p[2])
-            elif len(p) >= 4:
-                return eval(p[3])
+            elif tmp > 0:
+                # print("[>0]")
+                return eval(p[2])
+            elif len(p) == 4:
+                # print("[FALSE]")
+                eval(p[3])
         elif p[0] == 'aliud':
-                return eval(p[1])
+            return eval(p[1])
     else:
         return p
 
