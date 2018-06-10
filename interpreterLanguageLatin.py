@@ -6,7 +6,7 @@
 
 # -----------------------------------------------------------------------------
 # Basic : if(expression_bool) {block} else if(expression_bool) {block} else {block}
-# Our : si expression_bool {block} si_igitur expression_bool {block} aliud {block}
+# Our : si expression_bool {block} aliud si expression_bool {block} aliud {block}
 #
 # Basic : while(expression_bool) {block}
 # Our : dum(expression_bool) {block}
@@ -23,13 +23,16 @@ import ply.lex as lex
 import ply.yacc as yacc
 
 reserved = {
-   'si': 'IF',
-   'aliud': 'ELSE',
+    'si':   'IF',
+    'aliud':'ELSE',
+    'dum':  'WHILE',
+    'quia': 'FOR',
+    'fac':  'DO'
 }
 
 tokens = [
     'NUMBER', 'EQUAL',
-    'PLUS', 'MINUS', 'TIMES', 'DIVIDE',
+    'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'MODULO',
     'EQUALITY', 'NON_EQUALITY', 'LESSTHAN_AND_EQUALITY', 'GREATERTHAN_AND_EQUALITY', 'LESSTHAN', 'GREATERTHAN',
     'LPAREN', 'RPAREN', 'SEMICOLON', 'LBRACKET', 'RBRACKET',
     'NAME'
@@ -43,6 +46,7 @@ t_PLUS = r'\+'
 t_MINUS = r'-'
 t_TIMES = r'\*'
 t_DIVIDE = r'/'
+t_MODULO = r'%'
 
 t_EQUALITY = r'=='
 t_NON_EQUALITY = r'!='
@@ -114,14 +118,6 @@ def p_bloc(p):
     print(eval(p[0]))
 
 
-def p_body(p):
-    'body : LBRACKET bloc RBRACKET'
-
-    p[0] = p[2]
-
-    # print("body")
-
-
 # def p_condition(p):
 def p_statement_condition(p):
     '''statement : IF expression body
@@ -132,6 +128,24 @@ def p_statement_condition(p):
         p[0] = (p[1], p[2], p[3])
     elif len(p) == 6:
         p[0] = (p[1], p[2], p[3], (p[4], p[5]))
+
+
+def p_body(p):
+    'body : LBRACKET bloc RBRACKET'
+
+    p[0] = p[2]
+
+    # print("body")
+
+
+def p_statement_loop(p):
+    '''statement : WHILE expression body
+                 | FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body'''
+
+    if len(p) == 4:
+        p[0] = (p[1], p[2], p[3])
+    elif len(p) == 10:
+        p[0] = (p[1], p_statement_assign([p[2], p[3], p[4], p[5]]), p[6], p[7], p[8], p[9])
 
 
 def p_statement_assign(p):
@@ -175,7 +189,8 @@ def p_expression_binop(p):
     '''expression : expression PLUS expression
                   | expression MINUS expression
                   | expression TIMES expression
-                  | expression DIVIDE expression'''
+                  | expression DIVIDE expression
+                  | expression MODULO expression'''
     if p[2] == '+':
         p[0] = ('+', p[1], p[3])
     elif p[2] == '-':
@@ -184,11 +199,12 @@ def p_expression_binop(p):
         p[0] = ('*', p[1], p[3])
     elif p[2] == '/':
         p[0] = ('/', p[1], p[3])
-    # eval(p[0])
+    elif p[2] == '%':
+        p[0] = ('%', p[1], p[3])
 
 
 def eval(p):
-    print("p ->", p)
+    print(p)
 
     if type(p) == tuple:
         if p[0] == '+':
@@ -199,6 +215,8 @@ def eval(p):
             return eval(p[1]) * eval(p[2])
         elif p[0] == '/':
             return eval(p[1]) / eval(p[2])
+        elif p[0] == '%':
+            return eval(p[1]) % eval(p[2])
 
         elif p[0] == '==':
             return eval(p[1]) == eval(p[2])
@@ -215,7 +233,10 @@ def eval(p):
 
         elif p[0] == '=':
             a = eval(p[1])
+            print("ev:", a)
             names[a] = eval(p[2])
+            print("ev:", names[a])
+            print("ev:", names.get(a))
             return names.get(a)
 
 # @TODO left one bug, the result of the block is not display
@@ -235,6 +256,14 @@ def eval(p):
                 eval(p[3])
         elif p[0] == 'aliud':
             return eval(p[1])
+
+# @TODO loop statement
+
+        elif p[0] == 'dum':
+            tmp = eval(p[1])
+            while (tmp is True) or (tmp > 0):
+                eval(p[2])
+                tmp = eval(p[1])
     else:
         return p
 
@@ -256,9 +285,9 @@ def p_expression_number(p):
 
 def p_expression_name(p):
     'expression : NAME'
-    print("name")
     try:
         p[0] = names[p[1]]
+        #print(names)
     except LookupError:
         print("Undefined name '%s'" % p[1])
         p[0] = 0
