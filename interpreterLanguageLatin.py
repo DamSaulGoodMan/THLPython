@@ -119,7 +119,7 @@ def p_bloc(p):
             | statement '''
 
     if len(p) == 3:
-        p[0] = ('bloc', p[1], p[2])
+        p[0] = p[2]
     else:
         p[0] = p[1]
 
@@ -258,8 +258,8 @@ def eval(p):
             #print("ev:", names.get(a))
             return names.get(a)
 
-        elif p[0] == 'bloc':
-            eval(p[1])
+        #elif p[0] == 'bloc':
+         #   eval(p[1])
 
 # @TODO left one bug, the result of the block is not display
 
