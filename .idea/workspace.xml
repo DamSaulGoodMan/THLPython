@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e85f67ee-afd6-42ab-b220-fa72e7463300" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Compilateur.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Compilateur.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e85f67ee-afd6-42ab-b220-fa72e7463300" name="Default" comment="presque R">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interpreterLanguageLatin.py" beforeDir="false" afterPath="$PROJECT_DIR$/interpreterLanguageLatin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser.out" beforeDir="false" afterPath="$PROJECT_DIR$/parser.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsetab.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,8 +30,8 @@
           <file leaf-file-name="interpreterLanguageLatin.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/interpreterLanguageLatin.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="208" column="46" lean-forward="true" selection-start-line="208" selection-start-column="46" selection-end-line="208" selection-end-column="46" />
+                <state relative-caret-position="-1034">
+                  <caret line="223" lean-forward="true" selection-start-line="223" selection-end-line="223" />
                 </state>
               </provider>
             </entry>
@@ -44,7 +39,7 @@
           <file leaf-file-name="yacc.py" pinned="false" current-in-tab="false">
             <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/ply/yacc.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="148">
+                <state relative-caret-position="16755">
                   <caret line="1122" selection-start-line="1122" selection-end-line="1122" />
                 </state>
               </provider>
@@ -53,7 +48,7 @@
           <file leaf-file-name="calc(version_theo).py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/calc(version_theo).py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1515">
+                <state relative-caret-position="1530">
                   <caret line="102" column="32" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
                 </state>
               </provider>
@@ -71,7 +66,7 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="code.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/code.txt">
               <provider selected="true" editor-type-id="text-editor">
@@ -124,7 +119,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -132,15 +126,11 @@
               <item name="THLPython" type="b2602c69:ProjectViewProjectNode" />
               <item name="THLPython" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="THLPython" type="b2602c69:ProjectViewProjectNode" />
-              <item name="THLPython" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -315,7 +305,7 @@
     <frame x="0" y="27" width="1366" height="708" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21013413" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21013413" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -357,7 +347,8 @@
     <MESSAGE value="Tentative d'ajout du &quot;si&quot; mais sans succes :)" />
     <MESSAGE value="IF are OK but ELSE dans IF ELSE have a little bug :)&#10;In an other part, all statement in block are parse before conditions and i don't know how to restrict theirs parsing :/" />
     <MESSAGE value="IF, ELSE, ELSE IF are done but with two bug :&#10; - Block of if and else who must to me done after read the condition are&#10;parse twice (before and after)&#10; - After the condition, result of statement is &quot;NONE&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="IF, ELSE, ELSE IF are done but with two bug :&#10; - Block of if and else who must to me done after read the condition are&#10;parse twice (before and after)&#10; - After the condition, result of statement is &quot;NONE&quot;" />
+    <MESSAGE value="presque R" />
+    <option name="LAST_COMMIT_MESSAGE" value="presque R" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -673,7 +664,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/calc(version_theo).py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1515">
+        <state relative-caret-position="1530">
           <caret line="102" column="32" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
         </state>
       </provider>
@@ -689,7 +680,7 @@
     <entry file="file://$PROJECT_DIR$/../TP PLY/venv/Lib/site-packages/ply/yacc.py" />
     <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/ply/yacc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
+        <state relative-caret-position="16755">
           <caret line="1122" selection-start-line="1122" selection-end-line="1122" />
         </state>
       </provider>
@@ -703,8 +694,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/interpreterLanguageLatin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="208" column="46" lean-forward="true" selection-start-line="208" selection-start-column="46" selection-end-line="208" selection-end-column="46" />
+        <state relative-caret-position="-1034">
+          <caret line="223" lean-forward="true" selection-start-line="223" selection-end-line="223" />
         </state>
       </provider>
     </entry>
