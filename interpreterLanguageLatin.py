@@ -5,17 +5,17 @@
 # -----------------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------
-# Basic : if(expression_bool) {block} else if(expression_bool) {block} else {block}
-# Our : si expression_bool {block} aliud si expression_bool {block} aliud {block}
+# Basic : if(expression_bool) {block} else if(expression_bool) {block} else {bloc}
+# Our : si expression_bool {block} aliud si expression_bool {block} aliud {bloc}
 #
-# Basic : while(expression_bool) {block}
-# Our : dum(expression_bool) {block}
+# Basic : while(expression_bool) {bloc}
+# Our : dum(expression_bool) {bloc}
 #
-# Basic : for(statement_assign, expression_bool, expression_binop) {block}
-# Our : quia(statement_assign, expression_bool, expression_binop) {block}
+# Basic : for(statement_assign, expression_bool, expression_binop) {bloc}
+# Our : quia(statement_assign, expression_bool, expression_binop) {bloc}
 #
-# Basic : do{block} while(expression_bool)
-# Our : fac{block} dum(expression_bool)
+# Basic : do{bloc} while(expression_bool)
+# Our : fac{bloc} dum(expression_bool)
 #
 # -----------------------------------------------------------------------------
 
@@ -23,6 +23,7 @@ import ply.lex as lex
 import ply.yacc as yacc
 
 reserved = {
+    'bloc': 'BLOC',
     'si':   'IF',
     'aliud':'ELSE',
     'dum':  'WHILE',
@@ -106,28 +107,46 @@ precedence = (
 names = {}
 
 
+"""def p_master(p):
+    '''master : bloc'''
+    p[0] = p[1]
+    print(p[0])
+    eval(p[0])"""
+
+
 def p_bloc(p):
     '''bloc : bloc statement
             | statement '''
 
     if len(p) == 3:
-        p[0] = p[2]
+        p[0] = ('bloc', p[1], p[2])
     else:
         p[0] = p[1]
 
     print(eval(p[0]))
 
 
-# def p_condition(p):
-def p_statement_condition(p):
+"""def p_statement_condition(p):
     '''statement : IF expression body
-                 | IF expression body ELSE body
-                 | IF expression body ELSE statement'''
+                 | IF expression body ELSE body'''
+                #| IF expression body ELSE statement
 
     if len(p) == 4:
         p[0] = (p[1], p[2], p[3])
     elif len(p) == 6:
         p[0] = (p[1], p[2], p[3], (p[4], p[5]))
+"""
+
+
+def p_statement_condition(p):
+    '''statement : IF expression LBRACKET bloc RBRACKET
+                 | IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET'''
+                #| IF expression body ELSE statement
+
+    if len(p) == 6:
+        p[0] = (p[1], p[2], p[4])
+    elif len(p) == 10:
+        p[0] = (p[1], p[2], p[4], (p[6], p[8]))
 
 
 def p_body(p):
@@ -233,11 +252,14 @@ def eval(p):
 
         elif p[0] == '=':
             a = eval(p[1])
-            print("ev:", a)
+            #print("ev:", a)
             names[a] = eval(p[2])
-            print("ev:", names[a])
-            print("ev:", names.get(a))
+            #print("ev:", names[a])
+            #print("ev:", names.get(a))
             return names.get(a)
+
+        elif p[0] == 'bloc':
+            eval(p[1])
 
 # @TODO left one bug, the result of the block is not display
 
@@ -245,11 +267,7 @@ def eval(p):
             # print("[SI]")
             tmp = eval(p[1])
 
-            if tmp is True:
-                # print("[TRUE]")
-                return eval(p[2])
-            elif tmp > 0:
-                # print("[>0]")
+            if tmp:
                 return eval(p[2])
             elif len(p) == 4:
                 # print("[FALSE]")
@@ -299,9 +317,13 @@ def p_error(p):
 
 yacc.yacc()
 
-while True:
+"""while True:
     try:
         s = input('calcLatin > ')  # use input() on Python 3
     except EOFError:
-        break
-    yacc.parse(s)
+        break"""
+
+with open("code.txt") as f:
+    s = f.read()
+
+yacc.parse(s)

@@ -3,70 +3,71 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 Unused terminals:
 
     DO
+    BLOC
 
 Grammar
 
 Rule 0     S' -> bloc
 Rule 1     bloc -> bloc statement
 Rule 2     bloc -> statement
-Rule 3     statement -> IF expression body
-Rule 4     statement -> IF expression body ELSE body
-Rule 5     statement -> IF expression body ELSE statement
-Rule 6     body -> LBRACKET bloc RBRACKET
-Rule 7     statement -> WHILE expression body
-Rule 8     statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
-Rule 9     statement -> NAME EQUAL expression SEMICOLON
-Rule 10    statement -> expression SEMICOLON
-Rule 11    expression -> expression EQUALITY expression
-Rule 12    expression -> expression NON_EQUALITY expression
-Rule 13    expression -> expression LESSTHAN expression
-Rule 14    expression -> expression GREATERTHAN expression
-Rule 15    expression -> expression LESSTHAN_AND_EQUALITY expression
-Rule 16    expression -> expression GREATERTHAN_AND_EQUALITY expression
-Rule 17    expression -> expression PLUS expression
-Rule 18    expression -> expression MINUS expression
-Rule 19    expression -> expression TIMES expression
-Rule 20    expression -> expression DIVIDE expression
-Rule 21    expression -> expression MODULO expression
-Rule 22    expression -> MINUS expression
-Rule 23    expression -> LPAREN expression RPAREN
-Rule 24    expression -> NUMBER
-Rule 25    expression -> NAME
+Rule 3     statement -> IF expression LBRACKET bloc RBRACKET
+Rule 4     statement -> IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET
+Rule 5     body -> LBRACKET bloc RBRACKET
+Rule 6     statement -> WHILE expression body
+Rule 7     statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
+Rule 8     statement -> NAME EQUAL expression SEMICOLON
+Rule 9     statement -> expression SEMICOLON
+Rule 10    expression -> expression EQUALITY expression
+Rule 11    expression -> expression NON_EQUALITY expression
+Rule 12    expression -> expression LESSTHAN expression
+Rule 13    expression -> expression GREATERTHAN expression
+Rule 14    expression -> expression LESSTHAN_AND_EQUALITY expression
+Rule 15    expression -> expression GREATERTHAN_AND_EQUALITY expression
+Rule 16    expression -> expression PLUS expression
+Rule 17    expression -> expression MINUS expression
+Rule 18    expression -> expression TIMES expression
+Rule 19    expression -> expression DIVIDE expression
+Rule 20    expression -> expression MODULO expression
+Rule 21    expression -> MINUS expression
+Rule 22    expression -> LPAREN expression RPAREN
+Rule 23    expression -> NUMBER
+Rule 24    expression -> NAME
 
 Terminals, with rules where they appear
 
-DIVIDE               : 20
+BLOC                 : 
+DIVIDE               : 19
 DO                   : 
-ELSE                 : 4 5
-EQUAL                : 8 9
-EQUALITY             : 11
-FOR                  : 8
-GREATERTHAN          : 14
-GREATERTHAN_AND_EQUALITY : 16
-IF                   : 3 4 5
-LBRACKET             : 6
-LESSTHAN             : 13
-LESSTHAN_AND_EQUALITY : 15
-LPAREN               : 23
-MINUS                : 18 22
-MODULO               : 21
-NAME                 : 8 9 25
-NON_EQUALITY         : 12
-NUMBER               : 24
-PLUS                 : 17
-RBRACKET             : 6
-RPAREN               : 23
-SEMICOLON            : 8 8 9 10
-TIMES                : 19
-WHILE                : 7
+ELSE                 : 4
+EQUAL                : 7 8
+EQUALITY             : 10
+FOR                  : 7
+GREATERTHAN          : 13
+GREATERTHAN_AND_EQUALITY : 15
+IF                   : 3 4
+LBRACKET             : 3 4 4 5
+LESSTHAN             : 12
+LESSTHAN_AND_EQUALITY : 14
+LPAREN               : 22
+MINUS                : 17 21
+MODULO               : 20
+NAME                 : 7 8 24
+NON_EQUALITY         : 11
+NUMBER               : 23
+PLUS                 : 16
+RBRACKET             : 3 4 4 5
+RPAREN               : 22
+SEMICOLON            : 7 7 8 9
+TIMES                : 18
+WHILE                : 6
 error                : 
 
 Nonterminals, with rules where they appear
 
-bloc                 : 1 6 0
-body                 : 3 4 4 5 7 8
-expression           : 3 4 5 7 8 8 8 9 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 23
-statement            : 1 2 5
+bloc                 : 1 3 4 4 5 0
+body                 : 6 7
+expression           : 3 4 6 7 7 7 8 9 10 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 22
+statement            : 1 2
 
 Parsing method: LALR
 
@@ -75,83 +76,237 @@ state 0
     (0) S' -> . bloc
     (1) bloc -> . bloc statement
     (2) bloc -> . statement
-    (3) statement -> . IF expression body
-    (4) statement -> . IF expression body ELSE body
-    (5) statement -> . IF expression body ELSE statement
-    (7) statement -> . WHILE expression body
-    (8) statement -> . FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
-    (9) statement -> . NAME EQUAL expression SEMICOLON
-    (10) statement -> . expression SEMICOLON
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
+    (3) statement -> . IF expression LBRACKET bloc RBRACKET
+    (4) statement -> . IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET
+    (6) statement -> . WHILE expression body
+    (7) statement -> . FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
+    (8) statement -> . NAME EQUAL expression SEMICOLON
+    (9) statement -> . expression SEMICOLON
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
 
-    IF              shift and go to state 3
-    WHILE           shift and go to state 5
-    FOR             shift and go to state 6
-    NAME            shift and go to state 7
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
+    IF              shift and go to state 6
+    WHILE           shift and go to state 2
+    FOR             shift and go to state 4
+    NAME            shift and go to state 1
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
 
-    bloc                           shift and go to state 1
-    statement                      shift and go to state 2
-    expression                     shift and go to state 4
+    bloc                           shift and go to state 5
+    expression                     shift and go to state 3
+    statement                      shift and go to state 9
 
 state 1
 
-    (0) S' -> bloc .
-    (1) bloc -> bloc . statement
-    (3) statement -> . IF expression body
-    (4) statement -> . IF expression body ELSE body
-    (5) statement -> . IF expression body ELSE statement
-    (7) statement -> . WHILE expression body
-    (8) statement -> . FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
-    (9) statement -> . NAME EQUAL expression SEMICOLON
-    (10) statement -> . expression SEMICOLON
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
+    (8) statement -> NAME . EQUAL expression SEMICOLON
+    (24) expression -> NAME .
 
-    IF              shift and go to state 3
-    WHILE           shift and go to state 5
-    FOR             shift and go to state 6
-    NAME            shift and go to state 7
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
+    EQUAL           shift and go to state 11
+    SEMICOLON       reduce using rule 24 (expression -> NAME .)
+    EQUALITY        reduce using rule 24 (expression -> NAME .)
+    NON_EQUALITY    reduce using rule 24 (expression -> NAME .)
+    LESSTHAN        reduce using rule 24 (expression -> NAME .)
+    GREATERTHAN     reduce using rule 24 (expression -> NAME .)
+    LESSTHAN_AND_EQUALITY reduce using rule 24 (expression -> NAME .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 24 (expression -> NAME .)
+    PLUS            reduce using rule 24 (expression -> NAME .)
+    MINUS           reduce using rule 24 (expression -> NAME .)
+    TIMES           reduce using rule 24 (expression -> NAME .)
+    DIVIDE          reduce using rule 24 (expression -> NAME .)
+    MODULO          reduce using rule 24 (expression -> NAME .)
 
-    statement                      shift and go to state 11
-    expression                     shift and go to state 4
 
 state 2
 
+    (6) statement -> WHILE . expression body
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 13
+
+state 3
+
+    (9) statement -> expression . SEMICOLON
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
+
+    SEMICOLON       shift and go to state 24
+    EQUALITY        shift and go to state 22
+    NON_EQUALITY    shift and go to state 16
+    LESSTHAN        shift and go to state 14
+    GREATERTHAN     shift and go to state 25
+    LESSTHAN_AND_EQUALITY shift and go to state 19
+    GREATERTHAN_AND_EQUALITY shift and go to state 17
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
+    MODULO          shift and go to state 23
+
+
+state 4
+
+    (7) statement -> FOR . NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
+
+    NAME            shift and go to state 26
+
+
+state 5
+
+    (0) S' -> bloc .
+    (1) bloc -> bloc . statement
+    (3) statement -> . IF expression LBRACKET bloc RBRACKET
+    (4) statement -> . IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET
+    (6) statement -> . WHILE expression body
+    (7) statement -> . FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
+    (8) statement -> . NAME EQUAL expression SEMICOLON
+    (9) statement -> . expression SEMICOLON
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    IF              shift and go to state 6
+    WHILE           shift and go to state 2
+    FOR             shift and go to state 4
+    NAME            shift and go to state 1
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+
+    expression                     shift and go to state 3
+    statement                      shift and go to state 27
+
+state 6
+
+    (3) statement -> IF . expression LBRACKET bloc RBRACKET
+    (4) statement -> IF . expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 28
+
+state 7
+
+    (23) expression -> NUMBER .
+
+    EQUALITY        reduce using rule 23 (expression -> NUMBER .)
+    NON_EQUALITY    reduce using rule 23 (expression -> NUMBER .)
+    LESSTHAN        reduce using rule 23 (expression -> NUMBER .)
+    GREATERTHAN     reduce using rule 23 (expression -> NUMBER .)
+    LESSTHAN_AND_EQUALITY reduce using rule 23 (expression -> NUMBER .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 23 (expression -> NUMBER .)
+    PLUS            reduce using rule 23 (expression -> NUMBER .)
+    MINUS           reduce using rule 23 (expression -> NUMBER .)
+    TIMES           reduce using rule 23 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 23 (expression -> NUMBER .)
+    MODULO          reduce using rule 23 (expression -> NUMBER .)
+    LBRACKET        reduce using rule 23 (expression -> NUMBER .)
+    SEMICOLON       reduce using rule 23 (expression -> NUMBER .)
+    RPAREN          reduce using rule 23 (expression -> NUMBER .)
+
+
+state 8
+
+    (22) expression -> LPAREN . expression RPAREN
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 29
+
+state 9
+
     (2) bloc -> statement .
 
+    RBRACKET        reduce using rule 2 (bloc -> statement .)
     IF              reduce using rule 2 (bloc -> statement .)
     WHILE           reduce using rule 2 (bloc -> statement .)
     FOR             reduce using rule 2 (bloc -> statement .)
@@ -160,195 +315,424 @@ state 2
     LPAREN          reduce using rule 2 (bloc -> statement .)
     NUMBER          reduce using rule 2 (bloc -> statement .)
     $end            reduce using rule 2 (bloc -> statement .)
-    RBRACKET        reduce using rule 2 (bloc -> statement .)
 
-
-state 3
-
-    (3) statement -> IF . expression body
-    (4) statement -> IF . expression body ELSE body
-    (5) statement -> IF . expression body ELSE statement
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 12
-
-state 4
-
-    (10) statement -> expression . SEMICOLON
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
-
-    SEMICOLON       shift and go to state 14
-    EQUALITY        shift and go to state 15
-    NON_EQUALITY    shift and go to state 16
-    LESSTHAN        shift and go to state 17
-    GREATERTHAN     shift and go to state 18
-    LESSTHAN_AND_EQUALITY shift and go to state 19
-    GREATERTHAN_AND_EQUALITY shift and go to state 20
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
-    MODULO          shift and go to state 25
-
-
-state 5
-
-    (7) statement -> WHILE . expression body
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 26
-
-state 6
-
-    (8) statement -> FOR . NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
-
-    NAME            shift and go to state 27
-
-
-state 7
-
-    (9) statement -> NAME . EQUAL expression SEMICOLON
-    (25) expression -> NAME .
-
-    EQUAL           shift and go to state 28
-    SEMICOLON       reduce using rule 25 (expression -> NAME .)
-    EQUALITY        reduce using rule 25 (expression -> NAME .)
-    NON_EQUALITY    reduce using rule 25 (expression -> NAME .)
-    LESSTHAN        reduce using rule 25 (expression -> NAME .)
-    GREATERTHAN     reduce using rule 25 (expression -> NAME .)
-    LESSTHAN_AND_EQUALITY reduce using rule 25 (expression -> NAME .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 25 (expression -> NAME .)
-    PLUS            reduce using rule 25 (expression -> NAME .)
-    MINUS           reduce using rule 25 (expression -> NAME .)
-    TIMES           reduce using rule 25 (expression -> NAME .)
-    DIVIDE          reduce using rule 25 (expression -> NAME .)
-    MODULO          reduce using rule 25 (expression -> NAME .)
-
-
-state 8
-
-    (22) expression -> MINUS . expression
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 29
-
-state 9
-
-    (23) expression -> LPAREN . expression RPAREN
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 30
 
 state 10
 
-    (24) expression -> NUMBER .
+    (21) expression -> MINUS . expression
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
 
-    SEMICOLON       reduce using rule 24 (expression -> NUMBER .)
-    EQUALITY        reduce using rule 24 (expression -> NUMBER .)
-    NON_EQUALITY    reduce using rule 24 (expression -> NUMBER .)
-    LESSTHAN        reduce using rule 24 (expression -> NUMBER .)
-    GREATERTHAN     reduce using rule 24 (expression -> NUMBER .)
-    LESSTHAN_AND_EQUALITY reduce using rule 24 (expression -> NUMBER .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 24 (expression -> NUMBER .)
-    PLUS            reduce using rule 24 (expression -> NUMBER .)
-    MINUS           reduce using rule 24 (expression -> NUMBER .)
-    TIMES           reduce using rule 24 (expression -> NUMBER .)
-    DIVIDE          reduce using rule 24 (expression -> NUMBER .)
-    MODULO          reduce using rule 24 (expression -> NUMBER .)
-    LBRACKET        reduce using rule 24 (expression -> NUMBER .)
-    RPAREN          reduce using rule 24 (expression -> NUMBER .)
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
 
+    expression                     shift and go to state 30
 
 state 11
 
+    (8) statement -> NAME EQUAL . expression SEMICOLON
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 31
+
+state 12
+
+    (24) expression -> NAME .
+
+    EQUALITY        reduce using rule 24 (expression -> NAME .)
+    NON_EQUALITY    reduce using rule 24 (expression -> NAME .)
+    LESSTHAN        reduce using rule 24 (expression -> NAME .)
+    GREATERTHAN     reduce using rule 24 (expression -> NAME .)
+    LESSTHAN_AND_EQUALITY reduce using rule 24 (expression -> NAME .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 24 (expression -> NAME .)
+    PLUS            reduce using rule 24 (expression -> NAME .)
+    MINUS           reduce using rule 24 (expression -> NAME .)
+    TIMES           reduce using rule 24 (expression -> NAME .)
+    DIVIDE          reduce using rule 24 (expression -> NAME .)
+    MODULO          reduce using rule 24 (expression -> NAME .)
+    LBRACKET        reduce using rule 24 (expression -> NAME .)
+    SEMICOLON       reduce using rule 24 (expression -> NAME .)
+    RPAREN          reduce using rule 24 (expression -> NAME .)
+
+
+state 13
+
+    (6) statement -> WHILE expression . body
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
+    (5) body -> . LBRACKET bloc RBRACKET
+
+    EQUALITY        shift and go to state 22
+    NON_EQUALITY    shift and go to state 16
+    LESSTHAN        shift and go to state 14
+    GREATERTHAN     shift and go to state 25
+    LESSTHAN_AND_EQUALITY shift and go to state 19
+    GREATERTHAN_AND_EQUALITY shift and go to state 17
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
+    MODULO          shift and go to state 23
+    LBRACKET        shift and go to state 32
+
+    body                           shift and go to state 33
+
+state 14
+
+    (12) expression -> expression LESSTHAN . expression
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 34
+
+state 15
+
+    (18) expression -> expression TIMES . expression
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 35
+
+state 16
+
+    (11) expression -> expression NON_EQUALITY . expression
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 36
+
+state 17
+
+    (15) expression -> expression GREATERTHAN_AND_EQUALITY . expression
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 37
+
+state 18
+
+    (16) expression -> expression PLUS . expression
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 38
+
+state 19
+
+    (14) expression -> expression LESSTHAN_AND_EQUALITY . expression
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 39
+
+state 20
+
+    (19) expression -> expression DIVIDE . expression
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 40
+
+state 21
+
+    (17) expression -> expression MINUS . expression
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 41
+
+state 22
+
+    (10) expression -> expression EQUALITY . expression
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 42
+
+state 23
+
+    (20) expression -> expression MODULO . expression
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 43
+
+state 24
+
+    (9) statement -> expression SEMICOLON .
+
+    RBRACKET        reduce using rule 9 (statement -> expression SEMICOLON .)
+    IF              reduce using rule 9 (statement -> expression SEMICOLON .)
+    WHILE           reduce using rule 9 (statement -> expression SEMICOLON .)
+    FOR             reduce using rule 9 (statement -> expression SEMICOLON .)
+    NAME            reduce using rule 9 (statement -> expression SEMICOLON .)
+    MINUS           reduce using rule 9 (statement -> expression SEMICOLON .)
+    LPAREN          reduce using rule 9 (statement -> expression SEMICOLON .)
+    NUMBER          reduce using rule 9 (statement -> expression SEMICOLON .)
+    $end            reduce using rule 9 (statement -> expression SEMICOLON .)
+
+
+state 25
+
+    (13) expression -> expression GREATERTHAN . expression
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
+
+    expression                     shift and go to state 44
+
+state 26
+
+    (7) statement -> FOR NAME . EQUAL expression SEMICOLON expression SEMICOLON expression body
+
+    EQUAL           shift and go to state 45
+
+
+state 27
+
     (1) bloc -> bloc statement .
 
+    RBRACKET        reduce using rule 1 (bloc -> bloc statement .)
     IF              reduce using rule 1 (bloc -> bloc statement .)
     WHILE           reduce using rule 1 (bloc -> bloc statement .)
     FOR             reduce using rule 1 (bloc -> bloc statement .)
@@ -357,1001 +741,594 @@ state 11
     LPAREN          reduce using rule 1 (bloc -> bloc statement .)
     NUMBER          reduce using rule 1 (bloc -> bloc statement .)
     $end            reduce using rule 1 (bloc -> bloc statement .)
-    RBRACKET        reduce using rule 1 (bloc -> bloc statement .)
-
-
-state 12
-
-    (3) statement -> IF expression . body
-    (4) statement -> IF expression . body ELSE body
-    (5) statement -> IF expression . body ELSE statement
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
-    (6) body -> . LBRACKET bloc RBRACKET
-
-    EQUALITY        shift and go to state 15
-    NON_EQUALITY    shift and go to state 16
-    LESSTHAN        shift and go to state 17
-    GREATERTHAN     shift and go to state 18
-    LESSTHAN_AND_EQUALITY shift and go to state 19
-    GREATERTHAN_AND_EQUALITY shift and go to state 20
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
-    MODULO          shift and go to state 25
-    LBRACKET        shift and go to state 32
-
-    body                           shift and go to state 31
-
-state 13
-
-    (25) expression -> NAME .
-
-    EQUALITY        reduce using rule 25 (expression -> NAME .)
-    NON_EQUALITY    reduce using rule 25 (expression -> NAME .)
-    LESSTHAN        reduce using rule 25 (expression -> NAME .)
-    GREATERTHAN     reduce using rule 25 (expression -> NAME .)
-    LESSTHAN_AND_EQUALITY reduce using rule 25 (expression -> NAME .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 25 (expression -> NAME .)
-    PLUS            reduce using rule 25 (expression -> NAME .)
-    MINUS           reduce using rule 25 (expression -> NAME .)
-    TIMES           reduce using rule 25 (expression -> NAME .)
-    DIVIDE          reduce using rule 25 (expression -> NAME .)
-    MODULO          reduce using rule 25 (expression -> NAME .)
-    LBRACKET        reduce using rule 25 (expression -> NAME .)
-    SEMICOLON       reduce using rule 25 (expression -> NAME .)
-    RPAREN          reduce using rule 25 (expression -> NAME .)
-
-
-state 14
-
-    (10) statement -> expression SEMICOLON .
-
-    IF              reduce using rule 10 (statement -> expression SEMICOLON .)
-    WHILE           reduce using rule 10 (statement -> expression SEMICOLON .)
-    FOR             reduce using rule 10 (statement -> expression SEMICOLON .)
-    NAME            reduce using rule 10 (statement -> expression SEMICOLON .)
-    MINUS           reduce using rule 10 (statement -> expression SEMICOLON .)
-    LPAREN          reduce using rule 10 (statement -> expression SEMICOLON .)
-    NUMBER          reduce using rule 10 (statement -> expression SEMICOLON .)
-    $end            reduce using rule 10 (statement -> expression SEMICOLON .)
-    RBRACKET        reduce using rule 10 (statement -> expression SEMICOLON .)
-
-
-state 15
-
-    (11) expression -> expression EQUALITY . expression
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 33
-
-state 16
-
-    (12) expression -> expression NON_EQUALITY . expression
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 34
-
-state 17
-
-    (13) expression -> expression LESSTHAN . expression
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 35
-
-state 18
-
-    (14) expression -> expression GREATERTHAN . expression
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 36
-
-state 19
-
-    (15) expression -> expression LESSTHAN_AND_EQUALITY . expression
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 37
-
-state 20
-
-    (16) expression -> expression GREATERTHAN_AND_EQUALITY . expression
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 38
-
-state 21
-
-    (17) expression -> expression PLUS . expression
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 39
-
-state 22
-
-    (18) expression -> expression MINUS . expression
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 40
-
-state 23
-
-    (19) expression -> expression TIMES . expression
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 41
-
-state 24
-
-    (20) expression -> expression DIVIDE . expression
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 42
-
-state 25
-
-    (21) expression -> expression MODULO . expression
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
-
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
-
-    expression                     shift and go to state 43
-
-state 26
-
-    (7) statement -> WHILE expression . body
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
-    (6) body -> . LBRACKET bloc RBRACKET
-
-    EQUALITY        shift and go to state 15
-    NON_EQUALITY    shift and go to state 16
-    LESSTHAN        shift and go to state 17
-    GREATERTHAN     shift and go to state 18
-    LESSTHAN_AND_EQUALITY shift and go to state 19
-    GREATERTHAN_AND_EQUALITY shift and go to state 20
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
-    MODULO          shift and go to state 25
-    LBRACKET        shift and go to state 32
-
-    body                           shift and go to state 44
-
-state 27
-
-    (8) statement -> FOR NAME . EQUAL expression SEMICOLON expression SEMICOLON expression body
-
-    EQUAL           shift and go to state 45
 
 
 state 28
 
-    (9) statement -> NAME EQUAL . expression SEMICOLON
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
+    (3) statement -> IF expression . LBRACKET bloc RBRACKET
+    (4) statement -> IF expression . LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
+    LBRACKET        shift and go to state 46
+    EQUALITY        shift and go to state 22
+    NON_EQUALITY    shift and go to state 16
+    LESSTHAN        shift and go to state 14
+    GREATERTHAN     shift and go to state 25
+    LESSTHAN_AND_EQUALITY shift and go to state 19
+    GREATERTHAN_AND_EQUALITY shift and go to state 17
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
+    MODULO          shift and go to state 23
 
-    expression                     shift and go to state 46
 
 state 29
 
-    (22) expression -> MINUS expression .
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (22) expression -> LPAREN expression . RPAREN
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    SEMICOLON       reduce using rule 22 (expression -> MINUS expression .)
-    EQUALITY        reduce using rule 22 (expression -> MINUS expression .)
-    NON_EQUALITY    reduce using rule 22 (expression -> MINUS expression .)
-    LESSTHAN        reduce using rule 22 (expression -> MINUS expression .)
-    GREATERTHAN     reduce using rule 22 (expression -> MINUS expression .)
-    LESSTHAN_AND_EQUALITY reduce using rule 22 (expression -> MINUS expression .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 22 (expression -> MINUS expression .)
-    PLUS            reduce using rule 22 (expression -> MINUS expression .)
-    MINUS           reduce using rule 22 (expression -> MINUS expression .)
-    TIMES           reduce using rule 22 (expression -> MINUS expression .)
-    DIVIDE          reduce using rule 22 (expression -> MINUS expression .)
-    MODULO          reduce using rule 22 (expression -> MINUS expression .)
-    LBRACKET        reduce using rule 22 (expression -> MINUS expression .)
-    RPAREN          reduce using rule 22 (expression -> MINUS expression .)
-
-  ! EQUALITY        [ shift and go to state 15 ]
-  ! NON_EQUALITY    [ shift and go to state 16 ]
-  ! LESSTHAN        [ shift and go to state 17 ]
-  ! GREATERTHAN     [ shift and go to state 18 ]
-  ! LESSTHAN_AND_EQUALITY [ shift and go to state 19 ]
-  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 20 ]
-  ! PLUS            [ shift and go to state 21 ]
-  ! MINUS           [ shift and go to state 22 ]
-  ! TIMES           [ shift and go to state 23 ]
-  ! DIVIDE          [ shift and go to state 24 ]
-  ! MODULO          [ shift and go to state 25 ]
+    RPAREN          shift and go to state 47
+    EQUALITY        shift and go to state 22
+    NON_EQUALITY    shift and go to state 16
+    LESSTHAN        shift and go to state 14
+    GREATERTHAN     shift and go to state 25
+    LESSTHAN_AND_EQUALITY shift and go to state 19
+    GREATERTHAN_AND_EQUALITY shift and go to state 17
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
+    MODULO          shift and go to state 23
 
 
 state 30
 
-    (23) expression -> LPAREN expression . RPAREN
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (21) expression -> MINUS expression .
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    RPAREN          shift and go to state 47
-    EQUALITY        shift and go to state 15
-    NON_EQUALITY    shift and go to state 16
-    LESSTHAN        shift and go to state 17
-    GREATERTHAN     shift and go to state 18
-    LESSTHAN_AND_EQUALITY shift and go to state 19
-    GREATERTHAN_AND_EQUALITY shift and go to state 20
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
-    MODULO          shift and go to state 25
+    EQUALITY        reduce using rule 21 (expression -> MINUS expression .)
+    NON_EQUALITY    reduce using rule 21 (expression -> MINUS expression .)
+    LESSTHAN        reduce using rule 21 (expression -> MINUS expression .)
+    GREATERTHAN     reduce using rule 21 (expression -> MINUS expression .)
+    LESSTHAN_AND_EQUALITY reduce using rule 21 (expression -> MINUS expression .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 21 (expression -> MINUS expression .)
+    PLUS            reduce using rule 21 (expression -> MINUS expression .)
+    MINUS           reduce using rule 21 (expression -> MINUS expression .)
+    TIMES           reduce using rule 21 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 21 (expression -> MINUS expression .)
+    MODULO          reduce using rule 21 (expression -> MINUS expression .)
+    LBRACKET        reduce using rule 21 (expression -> MINUS expression .)
+    SEMICOLON       reduce using rule 21 (expression -> MINUS expression .)
+    RPAREN          reduce using rule 21 (expression -> MINUS expression .)
+
+  ! EQUALITY        [ shift and go to state 22 ]
+  ! NON_EQUALITY    [ shift and go to state 16 ]
+  ! LESSTHAN        [ shift and go to state 14 ]
+  ! GREATERTHAN     [ shift and go to state 25 ]
+  ! LESSTHAN_AND_EQUALITY [ shift and go to state 19 ]
+  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 17 ]
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 21 ]
+  ! TIMES           [ shift and go to state 15 ]
+  ! DIVIDE          [ shift and go to state 20 ]
+  ! MODULO          [ shift and go to state 23 ]
 
 
 state 31
 
-    (3) statement -> IF expression body .
-    (4) statement -> IF expression body . ELSE body
-    (5) statement -> IF expression body . ELSE statement
+    (8) statement -> NAME EQUAL expression . SEMICOLON
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    IF              reduce using rule 3 (statement -> IF expression body .)
-    WHILE           reduce using rule 3 (statement -> IF expression body .)
-    FOR             reduce using rule 3 (statement -> IF expression body .)
-    NAME            reduce using rule 3 (statement -> IF expression body .)
-    MINUS           reduce using rule 3 (statement -> IF expression body .)
-    LPAREN          reduce using rule 3 (statement -> IF expression body .)
-    NUMBER          reduce using rule 3 (statement -> IF expression body .)
-    $end            reduce using rule 3 (statement -> IF expression body .)
-    RBRACKET        reduce using rule 3 (statement -> IF expression body .)
-    ELSE            shift and go to state 48
+    SEMICOLON       shift and go to state 48
+    EQUALITY        shift and go to state 22
+    NON_EQUALITY    shift and go to state 16
+    LESSTHAN        shift and go to state 14
+    GREATERTHAN     shift and go to state 25
+    LESSTHAN_AND_EQUALITY shift and go to state 19
+    GREATERTHAN_AND_EQUALITY shift and go to state 17
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
+    MODULO          shift and go to state 23
 
 
 state 32
 
-    (6) body -> LBRACKET . bloc RBRACKET
+    (5) body -> LBRACKET . bloc RBRACKET
     (1) bloc -> . bloc statement
     (2) bloc -> . statement
-    (3) statement -> . IF expression body
-    (4) statement -> . IF expression body ELSE body
-    (5) statement -> . IF expression body ELSE statement
-    (7) statement -> . WHILE expression body
-    (8) statement -> . FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
-    (9) statement -> . NAME EQUAL expression SEMICOLON
-    (10) statement -> . expression SEMICOLON
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
+    (3) statement -> . IF expression LBRACKET bloc RBRACKET
+    (4) statement -> . IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET
+    (6) statement -> . WHILE expression body
+    (7) statement -> . FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
+    (8) statement -> . NAME EQUAL expression SEMICOLON
+    (9) statement -> . expression SEMICOLON
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
 
-    IF              shift and go to state 3
-    WHILE           shift and go to state 5
-    FOR             shift and go to state 6
-    NAME            shift and go to state 7
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
+    IF              shift and go to state 6
+    WHILE           shift and go to state 2
+    FOR             shift and go to state 4
+    NAME            shift and go to state 1
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
 
     bloc                           shift and go to state 49
-    statement                      shift and go to state 2
-    expression                     shift and go to state 4
+    expression                     shift and go to state 3
+    statement                      shift and go to state 9
 
 state 33
 
-    (11) expression -> expression EQUALITY expression .
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (6) statement -> WHILE expression body .
 
-    SEMICOLON       reduce using rule 11 (expression -> expression EQUALITY expression .)
-    EQUALITY        reduce using rule 11 (expression -> expression EQUALITY expression .)
-    NON_EQUALITY    reduce using rule 11 (expression -> expression EQUALITY expression .)
-    LESSTHAN        reduce using rule 11 (expression -> expression EQUALITY expression .)
-    GREATERTHAN     reduce using rule 11 (expression -> expression EQUALITY expression .)
-    LESSTHAN_AND_EQUALITY reduce using rule 11 (expression -> expression EQUALITY expression .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 11 (expression -> expression EQUALITY expression .)
-    MODULO          reduce using rule 11 (expression -> expression EQUALITY expression .)
-    LBRACKET        reduce using rule 11 (expression -> expression EQUALITY expression .)
-    RPAREN          reduce using rule 11 (expression -> expression EQUALITY expression .)
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
-
-  ! PLUS            [ reduce using rule 11 (expression -> expression EQUALITY expression .) ]
-  ! MINUS           [ reduce using rule 11 (expression -> expression EQUALITY expression .) ]
-  ! TIMES           [ reduce using rule 11 (expression -> expression EQUALITY expression .) ]
-  ! DIVIDE          [ reduce using rule 11 (expression -> expression EQUALITY expression .) ]
-  ! EQUALITY        [ shift and go to state 15 ]
-  ! NON_EQUALITY    [ shift and go to state 16 ]
-  ! LESSTHAN        [ shift and go to state 17 ]
-  ! GREATERTHAN     [ shift and go to state 18 ]
-  ! LESSTHAN_AND_EQUALITY [ shift and go to state 19 ]
-  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 20 ]
-  ! MODULO          [ shift and go to state 25 ]
+    RBRACKET        reduce using rule 6 (statement -> WHILE expression body .)
+    IF              reduce using rule 6 (statement -> WHILE expression body .)
+    WHILE           reduce using rule 6 (statement -> WHILE expression body .)
+    FOR             reduce using rule 6 (statement -> WHILE expression body .)
+    NAME            reduce using rule 6 (statement -> WHILE expression body .)
+    MINUS           reduce using rule 6 (statement -> WHILE expression body .)
+    LPAREN          reduce using rule 6 (statement -> WHILE expression body .)
+    NUMBER          reduce using rule 6 (statement -> WHILE expression body .)
+    $end            reduce using rule 6 (statement -> WHILE expression body .)
 
 
 state 34
 
-    (12) expression -> expression NON_EQUALITY expression .
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (12) expression -> expression LESSTHAN expression .
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    SEMICOLON       reduce using rule 12 (expression -> expression NON_EQUALITY expression .)
-    EQUALITY        reduce using rule 12 (expression -> expression NON_EQUALITY expression .)
-    NON_EQUALITY    reduce using rule 12 (expression -> expression NON_EQUALITY expression .)
-    LESSTHAN        reduce using rule 12 (expression -> expression NON_EQUALITY expression .)
-    GREATERTHAN     reduce using rule 12 (expression -> expression NON_EQUALITY expression .)
-    LESSTHAN_AND_EQUALITY reduce using rule 12 (expression -> expression NON_EQUALITY expression .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 12 (expression -> expression NON_EQUALITY expression .)
-    MODULO          reduce using rule 12 (expression -> expression NON_EQUALITY expression .)
-    LBRACKET        reduce using rule 12 (expression -> expression NON_EQUALITY expression .)
-    RPAREN          reduce using rule 12 (expression -> expression NON_EQUALITY expression .)
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
+    EQUALITY        reduce using rule 12 (expression -> expression LESSTHAN expression .)
+    NON_EQUALITY    reduce using rule 12 (expression -> expression LESSTHAN expression .)
+    LESSTHAN        reduce using rule 12 (expression -> expression LESSTHAN expression .)
+    GREATERTHAN     reduce using rule 12 (expression -> expression LESSTHAN expression .)
+    LESSTHAN_AND_EQUALITY reduce using rule 12 (expression -> expression LESSTHAN expression .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 12 (expression -> expression LESSTHAN expression .)
+    MODULO          reduce using rule 12 (expression -> expression LESSTHAN expression .)
+    LBRACKET        reduce using rule 12 (expression -> expression LESSTHAN expression .)
+    SEMICOLON       reduce using rule 12 (expression -> expression LESSTHAN expression .)
+    RPAREN          reduce using rule 12 (expression -> expression LESSTHAN expression .)
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
 
-  ! PLUS            [ reduce using rule 12 (expression -> expression NON_EQUALITY expression .) ]
-  ! MINUS           [ reduce using rule 12 (expression -> expression NON_EQUALITY expression .) ]
-  ! TIMES           [ reduce using rule 12 (expression -> expression NON_EQUALITY expression .) ]
-  ! DIVIDE          [ reduce using rule 12 (expression -> expression NON_EQUALITY expression .) ]
-  ! EQUALITY        [ shift and go to state 15 ]
+  ! PLUS            [ reduce using rule 12 (expression -> expression LESSTHAN expression .) ]
+  ! MINUS           [ reduce using rule 12 (expression -> expression LESSTHAN expression .) ]
+  ! TIMES           [ reduce using rule 12 (expression -> expression LESSTHAN expression .) ]
+  ! DIVIDE          [ reduce using rule 12 (expression -> expression LESSTHAN expression .) ]
+  ! EQUALITY        [ shift and go to state 22 ]
   ! NON_EQUALITY    [ shift and go to state 16 ]
-  ! LESSTHAN        [ shift and go to state 17 ]
-  ! GREATERTHAN     [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 14 ]
+  ! GREATERTHAN     [ shift and go to state 25 ]
   ! LESSTHAN_AND_EQUALITY [ shift and go to state 19 ]
-  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 20 ]
-  ! MODULO          [ shift and go to state 25 ]
+  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 17 ]
+  ! MODULO          [ shift and go to state 23 ]
 
 
 state 35
 
-    (13) expression -> expression LESSTHAN expression .
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (18) expression -> expression TIMES expression .
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    SEMICOLON       reduce using rule 13 (expression -> expression LESSTHAN expression .)
-    EQUALITY        reduce using rule 13 (expression -> expression LESSTHAN expression .)
-    NON_EQUALITY    reduce using rule 13 (expression -> expression LESSTHAN expression .)
-    LESSTHAN        reduce using rule 13 (expression -> expression LESSTHAN expression .)
-    GREATERTHAN     reduce using rule 13 (expression -> expression LESSTHAN expression .)
-    LESSTHAN_AND_EQUALITY reduce using rule 13 (expression -> expression LESSTHAN expression .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 13 (expression -> expression LESSTHAN expression .)
-    MODULO          reduce using rule 13 (expression -> expression LESSTHAN expression .)
-    LBRACKET        reduce using rule 13 (expression -> expression LESSTHAN expression .)
-    RPAREN          reduce using rule 13 (expression -> expression LESSTHAN expression .)
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
+    EQUALITY        reduce using rule 18 (expression -> expression TIMES expression .)
+    NON_EQUALITY    reduce using rule 18 (expression -> expression TIMES expression .)
+    LESSTHAN        reduce using rule 18 (expression -> expression TIMES expression .)
+    GREATERTHAN     reduce using rule 18 (expression -> expression TIMES expression .)
+    LESSTHAN_AND_EQUALITY reduce using rule 18 (expression -> expression TIMES expression .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 18 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 18 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 18 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 18 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 18 (expression -> expression TIMES expression .)
+    MODULO          reduce using rule 18 (expression -> expression TIMES expression .)
+    LBRACKET        reduce using rule 18 (expression -> expression TIMES expression .)
+    SEMICOLON       reduce using rule 18 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 18 (expression -> expression TIMES expression .)
 
-  ! PLUS            [ reduce using rule 13 (expression -> expression LESSTHAN expression .) ]
-  ! MINUS           [ reduce using rule 13 (expression -> expression LESSTHAN expression .) ]
-  ! TIMES           [ reduce using rule 13 (expression -> expression LESSTHAN expression .) ]
-  ! DIVIDE          [ reduce using rule 13 (expression -> expression LESSTHAN expression .) ]
-  ! EQUALITY        [ shift and go to state 15 ]
+  ! EQUALITY        [ shift and go to state 22 ]
   ! NON_EQUALITY    [ shift and go to state 16 ]
-  ! LESSTHAN        [ shift and go to state 17 ]
-  ! GREATERTHAN     [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 14 ]
+  ! GREATERTHAN     [ shift and go to state 25 ]
   ! LESSTHAN_AND_EQUALITY [ shift and go to state 19 ]
-  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 20 ]
-  ! MODULO          [ shift and go to state 25 ]
+  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 17 ]
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 21 ]
+  ! TIMES           [ shift and go to state 15 ]
+  ! DIVIDE          [ shift and go to state 20 ]
+  ! MODULO          [ shift and go to state 23 ]
 
 
 state 36
 
-    (14) expression -> expression GREATERTHAN expression .
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (11) expression -> expression NON_EQUALITY expression .
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    SEMICOLON       reduce using rule 14 (expression -> expression GREATERTHAN expression .)
-    EQUALITY        reduce using rule 14 (expression -> expression GREATERTHAN expression .)
-    NON_EQUALITY    reduce using rule 14 (expression -> expression GREATERTHAN expression .)
-    LESSTHAN        reduce using rule 14 (expression -> expression GREATERTHAN expression .)
-    GREATERTHAN     reduce using rule 14 (expression -> expression GREATERTHAN expression .)
-    LESSTHAN_AND_EQUALITY reduce using rule 14 (expression -> expression GREATERTHAN expression .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 14 (expression -> expression GREATERTHAN expression .)
-    MODULO          reduce using rule 14 (expression -> expression GREATERTHAN expression .)
-    LBRACKET        reduce using rule 14 (expression -> expression GREATERTHAN expression .)
-    RPAREN          reduce using rule 14 (expression -> expression GREATERTHAN expression .)
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
+    EQUALITY        reduce using rule 11 (expression -> expression NON_EQUALITY expression .)
+    NON_EQUALITY    reduce using rule 11 (expression -> expression NON_EQUALITY expression .)
+    LESSTHAN        reduce using rule 11 (expression -> expression NON_EQUALITY expression .)
+    GREATERTHAN     reduce using rule 11 (expression -> expression NON_EQUALITY expression .)
+    LESSTHAN_AND_EQUALITY reduce using rule 11 (expression -> expression NON_EQUALITY expression .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 11 (expression -> expression NON_EQUALITY expression .)
+    MODULO          reduce using rule 11 (expression -> expression NON_EQUALITY expression .)
+    LBRACKET        reduce using rule 11 (expression -> expression NON_EQUALITY expression .)
+    SEMICOLON       reduce using rule 11 (expression -> expression NON_EQUALITY expression .)
+    RPAREN          reduce using rule 11 (expression -> expression NON_EQUALITY expression .)
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
 
-  ! PLUS            [ reduce using rule 14 (expression -> expression GREATERTHAN expression .) ]
-  ! MINUS           [ reduce using rule 14 (expression -> expression GREATERTHAN expression .) ]
-  ! TIMES           [ reduce using rule 14 (expression -> expression GREATERTHAN expression .) ]
-  ! DIVIDE          [ reduce using rule 14 (expression -> expression GREATERTHAN expression .) ]
-  ! EQUALITY        [ shift and go to state 15 ]
+  ! PLUS            [ reduce using rule 11 (expression -> expression NON_EQUALITY expression .) ]
+  ! MINUS           [ reduce using rule 11 (expression -> expression NON_EQUALITY expression .) ]
+  ! TIMES           [ reduce using rule 11 (expression -> expression NON_EQUALITY expression .) ]
+  ! DIVIDE          [ reduce using rule 11 (expression -> expression NON_EQUALITY expression .) ]
+  ! EQUALITY        [ shift and go to state 22 ]
   ! NON_EQUALITY    [ shift and go to state 16 ]
-  ! LESSTHAN        [ shift and go to state 17 ]
-  ! GREATERTHAN     [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 14 ]
+  ! GREATERTHAN     [ shift and go to state 25 ]
   ! LESSTHAN_AND_EQUALITY [ shift and go to state 19 ]
-  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 20 ]
-  ! MODULO          [ shift and go to state 25 ]
+  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 17 ]
+  ! MODULO          [ shift and go to state 23 ]
 
 
 state 37
 
-    (15) expression -> expression LESSTHAN_AND_EQUALITY expression .
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (15) expression -> expression GREATERTHAN_AND_EQUALITY expression .
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    SEMICOLON       reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
-    EQUALITY        reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
-    NON_EQUALITY    reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
-    LESSTHAN        reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
-    GREATERTHAN     reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
-    LESSTHAN_AND_EQUALITY reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
-    MODULO          reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
-    LBRACKET        reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
-    RPAREN          reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
+    EQUALITY        reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
+    NON_EQUALITY    reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
+    LESSTHAN        reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
+    GREATERTHAN     reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
+    LESSTHAN_AND_EQUALITY reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
+    MODULO          reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
+    LBRACKET        reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
+    SEMICOLON       reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
+    RPAREN          reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
 
-  ! PLUS            [ reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .) ]
-  ! MINUS           [ reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .) ]
-  ! TIMES           [ reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .) ]
-  ! DIVIDE          [ reduce using rule 15 (expression -> expression LESSTHAN_AND_EQUALITY expression .) ]
-  ! EQUALITY        [ shift and go to state 15 ]
+  ! PLUS            [ reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .) ]
+  ! MINUS           [ reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .) ]
+  ! TIMES           [ reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .) ]
+  ! DIVIDE          [ reduce using rule 15 (expression -> expression GREATERTHAN_AND_EQUALITY expression .) ]
+  ! EQUALITY        [ shift and go to state 22 ]
   ! NON_EQUALITY    [ shift and go to state 16 ]
-  ! LESSTHAN        [ shift and go to state 17 ]
-  ! GREATERTHAN     [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 14 ]
+  ! GREATERTHAN     [ shift and go to state 25 ]
   ! LESSTHAN_AND_EQUALITY [ shift and go to state 19 ]
-  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 20 ]
-  ! MODULO          [ shift and go to state 25 ]
+  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 17 ]
+  ! MODULO          [ shift and go to state 23 ]
 
 
 state 38
 
-    (16) expression -> expression GREATERTHAN_AND_EQUALITY expression .
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (16) expression -> expression PLUS expression .
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    SEMICOLON       reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
-    EQUALITY        reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
-    NON_EQUALITY    reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
-    LESSTHAN        reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
-    GREATERTHAN     reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
-    LESSTHAN_AND_EQUALITY reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
-    MODULO          reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
-    LBRACKET        reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
-    RPAREN          reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .)
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
+    EQUALITY        reduce using rule 16 (expression -> expression PLUS expression .)
+    NON_EQUALITY    reduce using rule 16 (expression -> expression PLUS expression .)
+    LESSTHAN        reduce using rule 16 (expression -> expression PLUS expression .)
+    GREATERTHAN     reduce using rule 16 (expression -> expression PLUS expression .)
+    LESSTHAN_AND_EQUALITY reduce using rule 16 (expression -> expression PLUS expression .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 16 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 16 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 16 (expression -> expression PLUS expression .)
+    MODULO          reduce using rule 16 (expression -> expression PLUS expression .)
+    LBRACKET        reduce using rule 16 (expression -> expression PLUS expression .)
+    SEMICOLON       reduce using rule 16 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 16 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
 
-  ! PLUS            [ reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .) ]
-  ! MINUS           [ reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .) ]
-  ! TIMES           [ reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .) ]
-  ! DIVIDE          [ reduce using rule 16 (expression -> expression GREATERTHAN_AND_EQUALITY expression .) ]
-  ! EQUALITY        [ shift and go to state 15 ]
+  ! TIMES           [ reduce using rule 16 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 16 (expression -> expression PLUS expression .) ]
+  ! EQUALITY        [ shift and go to state 22 ]
   ! NON_EQUALITY    [ shift and go to state 16 ]
-  ! LESSTHAN        [ shift and go to state 17 ]
-  ! GREATERTHAN     [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 14 ]
+  ! GREATERTHAN     [ shift and go to state 25 ]
   ! LESSTHAN_AND_EQUALITY [ shift and go to state 19 ]
-  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 20 ]
-  ! MODULO          [ shift and go to state 25 ]
+  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 17 ]
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 21 ]
+  ! MODULO          [ shift and go to state 23 ]
 
 
 state 39
 
-    (17) expression -> expression PLUS expression .
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (14) expression -> expression LESSTHAN_AND_EQUALITY expression .
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    SEMICOLON       reduce using rule 17 (expression -> expression PLUS expression .)
-    EQUALITY        reduce using rule 17 (expression -> expression PLUS expression .)
-    NON_EQUALITY    reduce using rule 17 (expression -> expression PLUS expression .)
-    LESSTHAN        reduce using rule 17 (expression -> expression PLUS expression .)
-    GREATERTHAN     reduce using rule 17 (expression -> expression PLUS expression .)
-    LESSTHAN_AND_EQUALITY reduce using rule 17 (expression -> expression PLUS expression .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 17 (expression -> expression PLUS expression .)
-    PLUS            reduce using rule 17 (expression -> expression PLUS expression .)
-    MINUS           reduce using rule 17 (expression -> expression PLUS expression .)
-    MODULO          reduce using rule 17 (expression -> expression PLUS expression .)
-    LBRACKET        reduce using rule 17 (expression -> expression PLUS expression .)
-    RPAREN          reduce using rule 17 (expression -> expression PLUS expression .)
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
+    EQUALITY        reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
+    NON_EQUALITY    reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
+    LESSTHAN        reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
+    GREATERTHAN     reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
+    LESSTHAN_AND_EQUALITY reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
+    MODULO          reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
+    LBRACKET        reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
+    SEMICOLON       reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
+    RPAREN          reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .)
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
 
-  ! TIMES           [ reduce using rule 17 (expression -> expression PLUS expression .) ]
-  ! DIVIDE          [ reduce using rule 17 (expression -> expression PLUS expression .) ]
-  ! EQUALITY        [ shift and go to state 15 ]
+  ! PLUS            [ reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .) ]
+  ! MINUS           [ reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .) ]
+  ! TIMES           [ reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .) ]
+  ! DIVIDE          [ reduce using rule 14 (expression -> expression LESSTHAN_AND_EQUALITY expression .) ]
+  ! EQUALITY        [ shift and go to state 22 ]
   ! NON_EQUALITY    [ shift and go to state 16 ]
-  ! LESSTHAN        [ shift and go to state 17 ]
-  ! GREATERTHAN     [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 14 ]
+  ! GREATERTHAN     [ shift and go to state 25 ]
   ! LESSTHAN_AND_EQUALITY [ shift and go to state 19 ]
-  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 20 ]
-  ! PLUS            [ shift and go to state 21 ]
-  ! MINUS           [ shift and go to state 22 ]
-  ! MODULO          [ shift and go to state 25 ]
+  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 17 ]
+  ! MODULO          [ shift and go to state 23 ]
 
 
 state 40
 
-    (18) expression -> expression MINUS expression .
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (19) expression -> expression DIVIDE expression .
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    SEMICOLON       reduce using rule 18 (expression -> expression MINUS expression .)
-    EQUALITY        reduce using rule 18 (expression -> expression MINUS expression .)
-    NON_EQUALITY    reduce using rule 18 (expression -> expression MINUS expression .)
-    LESSTHAN        reduce using rule 18 (expression -> expression MINUS expression .)
-    GREATERTHAN     reduce using rule 18 (expression -> expression MINUS expression .)
-    LESSTHAN_AND_EQUALITY reduce using rule 18 (expression -> expression MINUS expression .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 18 (expression -> expression MINUS expression .)
-    PLUS            reduce using rule 18 (expression -> expression MINUS expression .)
-    MINUS           reduce using rule 18 (expression -> expression MINUS expression .)
-    MODULO          reduce using rule 18 (expression -> expression MINUS expression .)
-    LBRACKET        reduce using rule 18 (expression -> expression MINUS expression .)
-    RPAREN          reduce using rule 18 (expression -> expression MINUS expression .)
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
+    EQUALITY        reduce using rule 19 (expression -> expression DIVIDE expression .)
+    NON_EQUALITY    reduce using rule 19 (expression -> expression DIVIDE expression .)
+    LESSTHAN        reduce using rule 19 (expression -> expression DIVIDE expression .)
+    GREATERTHAN     reduce using rule 19 (expression -> expression DIVIDE expression .)
+    LESSTHAN_AND_EQUALITY reduce using rule 19 (expression -> expression DIVIDE expression .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 19 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 19 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 19 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 19 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 19 (expression -> expression DIVIDE expression .)
+    MODULO          reduce using rule 19 (expression -> expression DIVIDE expression .)
+    LBRACKET        reduce using rule 19 (expression -> expression DIVIDE expression .)
+    SEMICOLON       reduce using rule 19 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 19 (expression -> expression DIVIDE expression .)
 
-  ! TIMES           [ reduce using rule 18 (expression -> expression MINUS expression .) ]
-  ! DIVIDE          [ reduce using rule 18 (expression -> expression MINUS expression .) ]
-  ! EQUALITY        [ shift and go to state 15 ]
+  ! EQUALITY        [ shift and go to state 22 ]
   ! NON_EQUALITY    [ shift and go to state 16 ]
-  ! LESSTHAN        [ shift and go to state 17 ]
-  ! GREATERTHAN     [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 14 ]
+  ! GREATERTHAN     [ shift and go to state 25 ]
   ! LESSTHAN_AND_EQUALITY [ shift and go to state 19 ]
-  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 20 ]
-  ! PLUS            [ shift and go to state 21 ]
-  ! MINUS           [ shift and go to state 22 ]
-  ! MODULO          [ shift and go to state 25 ]
+  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 17 ]
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 21 ]
+  ! TIMES           [ shift and go to state 15 ]
+  ! DIVIDE          [ shift and go to state 20 ]
+  ! MODULO          [ shift and go to state 23 ]
 
 
 state 41
 
-    (19) expression -> expression TIMES expression .
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (17) expression -> expression MINUS expression .
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    SEMICOLON       reduce using rule 19 (expression -> expression TIMES expression .)
-    EQUALITY        reduce using rule 19 (expression -> expression TIMES expression .)
-    NON_EQUALITY    reduce using rule 19 (expression -> expression TIMES expression .)
-    LESSTHAN        reduce using rule 19 (expression -> expression TIMES expression .)
-    GREATERTHAN     reduce using rule 19 (expression -> expression TIMES expression .)
-    LESSTHAN_AND_EQUALITY reduce using rule 19 (expression -> expression TIMES expression .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 19 (expression -> expression TIMES expression .)
-    PLUS            reduce using rule 19 (expression -> expression TIMES expression .)
-    MINUS           reduce using rule 19 (expression -> expression TIMES expression .)
-    TIMES           reduce using rule 19 (expression -> expression TIMES expression .)
-    DIVIDE          reduce using rule 19 (expression -> expression TIMES expression .)
-    MODULO          reduce using rule 19 (expression -> expression TIMES expression .)
-    LBRACKET        reduce using rule 19 (expression -> expression TIMES expression .)
-    RPAREN          reduce using rule 19 (expression -> expression TIMES expression .)
+    EQUALITY        reduce using rule 17 (expression -> expression MINUS expression .)
+    NON_EQUALITY    reduce using rule 17 (expression -> expression MINUS expression .)
+    LESSTHAN        reduce using rule 17 (expression -> expression MINUS expression .)
+    GREATERTHAN     reduce using rule 17 (expression -> expression MINUS expression .)
+    LESSTHAN_AND_EQUALITY reduce using rule 17 (expression -> expression MINUS expression .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 17 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 17 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 17 (expression -> expression MINUS expression .)
+    MODULO          reduce using rule 17 (expression -> expression MINUS expression .)
+    LBRACKET        reduce using rule 17 (expression -> expression MINUS expression .)
+    SEMICOLON       reduce using rule 17 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 17 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
 
-  ! EQUALITY        [ shift and go to state 15 ]
+  ! TIMES           [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 17 (expression -> expression MINUS expression .) ]
+  ! EQUALITY        [ shift and go to state 22 ]
   ! NON_EQUALITY    [ shift and go to state 16 ]
-  ! LESSTHAN        [ shift and go to state 17 ]
-  ! GREATERTHAN     [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 14 ]
+  ! GREATERTHAN     [ shift and go to state 25 ]
   ! LESSTHAN_AND_EQUALITY [ shift and go to state 19 ]
-  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 20 ]
-  ! PLUS            [ shift and go to state 21 ]
-  ! MINUS           [ shift and go to state 22 ]
-  ! TIMES           [ shift and go to state 23 ]
-  ! DIVIDE          [ shift and go to state 24 ]
-  ! MODULO          [ shift and go to state 25 ]
+  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 17 ]
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 21 ]
+  ! MODULO          [ shift and go to state 23 ]
 
 
 state 42
 
-    (20) expression -> expression DIVIDE expression .
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (10) expression -> expression EQUALITY expression .
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    SEMICOLON       reduce using rule 20 (expression -> expression DIVIDE expression .)
-    EQUALITY        reduce using rule 20 (expression -> expression DIVIDE expression .)
-    NON_EQUALITY    reduce using rule 20 (expression -> expression DIVIDE expression .)
-    LESSTHAN        reduce using rule 20 (expression -> expression DIVIDE expression .)
-    GREATERTHAN     reduce using rule 20 (expression -> expression DIVIDE expression .)
-    LESSTHAN_AND_EQUALITY reduce using rule 20 (expression -> expression DIVIDE expression .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 20 (expression -> expression DIVIDE expression .)
-    PLUS            reduce using rule 20 (expression -> expression DIVIDE expression .)
-    MINUS           reduce using rule 20 (expression -> expression DIVIDE expression .)
-    TIMES           reduce using rule 20 (expression -> expression DIVIDE expression .)
-    DIVIDE          reduce using rule 20 (expression -> expression DIVIDE expression .)
-    MODULO          reduce using rule 20 (expression -> expression DIVIDE expression .)
-    LBRACKET        reduce using rule 20 (expression -> expression DIVIDE expression .)
-    RPAREN          reduce using rule 20 (expression -> expression DIVIDE expression .)
+    EQUALITY        reduce using rule 10 (expression -> expression EQUALITY expression .)
+    NON_EQUALITY    reduce using rule 10 (expression -> expression EQUALITY expression .)
+    LESSTHAN        reduce using rule 10 (expression -> expression EQUALITY expression .)
+    GREATERTHAN     reduce using rule 10 (expression -> expression EQUALITY expression .)
+    LESSTHAN_AND_EQUALITY reduce using rule 10 (expression -> expression EQUALITY expression .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 10 (expression -> expression EQUALITY expression .)
+    MODULO          reduce using rule 10 (expression -> expression EQUALITY expression .)
+    LBRACKET        reduce using rule 10 (expression -> expression EQUALITY expression .)
+    SEMICOLON       reduce using rule 10 (expression -> expression EQUALITY expression .)
+    RPAREN          reduce using rule 10 (expression -> expression EQUALITY expression .)
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
 
-  ! EQUALITY        [ shift and go to state 15 ]
+  ! PLUS            [ reduce using rule 10 (expression -> expression EQUALITY expression .) ]
+  ! MINUS           [ reduce using rule 10 (expression -> expression EQUALITY expression .) ]
+  ! TIMES           [ reduce using rule 10 (expression -> expression EQUALITY expression .) ]
+  ! DIVIDE          [ reduce using rule 10 (expression -> expression EQUALITY expression .) ]
+  ! EQUALITY        [ shift and go to state 22 ]
   ! NON_EQUALITY    [ shift and go to state 16 ]
-  ! LESSTHAN        [ shift and go to state 17 ]
-  ! GREATERTHAN     [ shift and go to state 18 ]
+  ! LESSTHAN        [ shift and go to state 14 ]
+  ! GREATERTHAN     [ shift and go to state 25 ]
   ! LESSTHAN_AND_EQUALITY [ shift and go to state 19 ]
-  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 20 ]
-  ! PLUS            [ shift and go to state 21 ]
-  ! MINUS           [ shift and go to state 22 ]
-  ! TIMES           [ shift and go to state 23 ]
-  ! DIVIDE          [ shift and go to state 24 ]
-  ! MODULO          [ shift and go to state 25 ]
+  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 17 ]
+  ! MODULO          [ shift and go to state 23 ]
 
 
 state 43
 
-    (21) expression -> expression MODULO expression .
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (20) expression -> expression MODULO expression .
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
   ! shift/reduce conflict for EQUALITY resolved as shift
   ! shift/reduce conflict for NON_EQUALITY resolved as shift
@@ -1364,419 +1341,540 @@ state 43
   ! shift/reduce conflict for TIMES resolved as shift
   ! shift/reduce conflict for DIVIDE resolved as shift
   ! shift/reduce conflict for MODULO resolved as shift
-    SEMICOLON       reduce using rule 21 (expression -> expression MODULO expression .)
-    LBRACKET        reduce using rule 21 (expression -> expression MODULO expression .)
-    RPAREN          reduce using rule 21 (expression -> expression MODULO expression .)
-    EQUALITY        shift and go to state 15
+    LBRACKET        reduce using rule 20 (expression -> expression MODULO expression .)
+    SEMICOLON       reduce using rule 20 (expression -> expression MODULO expression .)
+    RPAREN          reduce using rule 20 (expression -> expression MODULO expression .)
+    EQUALITY        shift and go to state 22
     NON_EQUALITY    shift and go to state 16
-    LESSTHAN        shift and go to state 17
-    GREATERTHAN     shift and go to state 18
+    LESSTHAN        shift and go to state 14
+    GREATERTHAN     shift and go to state 25
     LESSTHAN_AND_EQUALITY shift and go to state 19
-    GREATERTHAN_AND_EQUALITY shift and go to state 20
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
-    MODULO          shift and go to state 25
+    GREATERTHAN_AND_EQUALITY shift and go to state 17
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
+    MODULO          shift and go to state 23
 
-  ! EQUALITY        [ reduce using rule 21 (expression -> expression MODULO expression .) ]
-  ! NON_EQUALITY    [ reduce using rule 21 (expression -> expression MODULO expression .) ]
-  ! LESSTHAN        [ reduce using rule 21 (expression -> expression MODULO expression .) ]
-  ! GREATERTHAN     [ reduce using rule 21 (expression -> expression MODULO expression .) ]
-  ! LESSTHAN_AND_EQUALITY [ reduce using rule 21 (expression -> expression MODULO expression .) ]
-  ! GREATERTHAN_AND_EQUALITY [ reduce using rule 21 (expression -> expression MODULO expression .) ]
-  ! PLUS            [ reduce using rule 21 (expression -> expression MODULO expression .) ]
-  ! MINUS           [ reduce using rule 21 (expression -> expression MODULO expression .) ]
-  ! TIMES           [ reduce using rule 21 (expression -> expression MODULO expression .) ]
-  ! DIVIDE          [ reduce using rule 21 (expression -> expression MODULO expression .) ]
-  ! MODULO          [ reduce using rule 21 (expression -> expression MODULO expression .) ]
+  ! EQUALITY        [ reduce using rule 20 (expression -> expression MODULO expression .) ]
+  ! NON_EQUALITY    [ reduce using rule 20 (expression -> expression MODULO expression .) ]
+  ! LESSTHAN        [ reduce using rule 20 (expression -> expression MODULO expression .) ]
+  ! GREATERTHAN     [ reduce using rule 20 (expression -> expression MODULO expression .) ]
+  ! LESSTHAN_AND_EQUALITY [ reduce using rule 20 (expression -> expression MODULO expression .) ]
+  ! GREATERTHAN_AND_EQUALITY [ reduce using rule 20 (expression -> expression MODULO expression .) ]
+  ! PLUS            [ reduce using rule 20 (expression -> expression MODULO expression .) ]
+  ! MINUS           [ reduce using rule 20 (expression -> expression MODULO expression .) ]
+  ! TIMES           [ reduce using rule 20 (expression -> expression MODULO expression .) ]
+  ! DIVIDE          [ reduce using rule 20 (expression -> expression MODULO expression .) ]
+  ! MODULO          [ reduce using rule 20 (expression -> expression MODULO expression .) ]
 
 
 state 44
 
-    (7) statement -> WHILE expression body .
+    (13) expression -> expression GREATERTHAN expression .
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    IF              reduce using rule 7 (statement -> WHILE expression body .)
-    WHILE           reduce using rule 7 (statement -> WHILE expression body .)
-    FOR             reduce using rule 7 (statement -> WHILE expression body .)
-    NAME            reduce using rule 7 (statement -> WHILE expression body .)
-    MINUS           reduce using rule 7 (statement -> WHILE expression body .)
-    LPAREN          reduce using rule 7 (statement -> WHILE expression body .)
-    NUMBER          reduce using rule 7 (statement -> WHILE expression body .)
-    $end            reduce using rule 7 (statement -> WHILE expression body .)
-    RBRACKET        reduce using rule 7 (statement -> WHILE expression body .)
+    EQUALITY        reduce using rule 13 (expression -> expression GREATERTHAN expression .)
+    NON_EQUALITY    reduce using rule 13 (expression -> expression GREATERTHAN expression .)
+    LESSTHAN        reduce using rule 13 (expression -> expression GREATERTHAN expression .)
+    GREATERTHAN     reduce using rule 13 (expression -> expression GREATERTHAN expression .)
+    LESSTHAN_AND_EQUALITY reduce using rule 13 (expression -> expression GREATERTHAN expression .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 13 (expression -> expression GREATERTHAN expression .)
+    MODULO          reduce using rule 13 (expression -> expression GREATERTHAN expression .)
+    LBRACKET        reduce using rule 13 (expression -> expression GREATERTHAN expression .)
+    SEMICOLON       reduce using rule 13 (expression -> expression GREATERTHAN expression .)
+    RPAREN          reduce using rule 13 (expression -> expression GREATERTHAN expression .)
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
+
+  ! PLUS            [ reduce using rule 13 (expression -> expression GREATERTHAN expression .) ]
+  ! MINUS           [ reduce using rule 13 (expression -> expression GREATERTHAN expression .) ]
+  ! TIMES           [ reduce using rule 13 (expression -> expression GREATERTHAN expression .) ]
+  ! DIVIDE          [ reduce using rule 13 (expression -> expression GREATERTHAN expression .) ]
+  ! EQUALITY        [ shift and go to state 22 ]
+  ! NON_EQUALITY    [ shift and go to state 16 ]
+  ! LESSTHAN        [ shift and go to state 14 ]
+  ! GREATERTHAN     [ shift and go to state 25 ]
+  ! LESSTHAN_AND_EQUALITY [ shift and go to state 19 ]
+  ! GREATERTHAN_AND_EQUALITY [ shift and go to state 17 ]
+  ! MODULO          [ shift and go to state 23 ]
 
 
 state 45
 
-    (8) statement -> FOR NAME EQUAL . expression SEMICOLON expression SEMICOLON expression body
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
+    (7) statement -> FOR NAME EQUAL . expression SEMICOLON expression SEMICOLON expression body
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
 
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
 
     expression                     shift and go to state 50
 
 state 46
 
-    (9) statement -> NAME EQUAL expression . SEMICOLON
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (3) statement -> IF expression LBRACKET . bloc RBRACKET
+    (4) statement -> IF expression LBRACKET . bloc RBRACKET ELSE LBRACKET bloc RBRACKET
+    (1) bloc -> . bloc statement
+    (2) bloc -> . statement
+    (3) statement -> . IF expression LBRACKET bloc RBRACKET
+    (4) statement -> . IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET
+    (6) statement -> . WHILE expression body
+    (7) statement -> . FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
+    (8) statement -> . NAME EQUAL expression SEMICOLON
+    (9) statement -> . expression SEMICOLON
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
 
-    SEMICOLON       shift and go to state 51
-    EQUALITY        shift and go to state 15
-    NON_EQUALITY    shift and go to state 16
-    LESSTHAN        shift and go to state 17
-    GREATERTHAN     shift and go to state 18
-    LESSTHAN_AND_EQUALITY shift and go to state 19
-    GREATERTHAN_AND_EQUALITY shift and go to state 20
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
-    MODULO          shift and go to state 25
+    IF              shift and go to state 6
+    WHILE           shift and go to state 2
+    FOR             shift and go to state 4
+    NAME            shift and go to state 1
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
 
+    bloc                           shift and go to state 51
+    expression                     shift and go to state 3
+    statement                      shift and go to state 9
 
 state 47
 
-    (23) expression -> LPAREN expression RPAREN .
+    (22) expression -> LPAREN expression RPAREN .
 
-    SEMICOLON       reduce using rule 23 (expression -> LPAREN expression RPAREN .)
-    EQUALITY        reduce using rule 23 (expression -> LPAREN expression RPAREN .)
-    NON_EQUALITY    reduce using rule 23 (expression -> LPAREN expression RPAREN .)
-    LESSTHAN        reduce using rule 23 (expression -> LPAREN expression RPAREN .)
-    GREATERTHAN     reduce using rule 23 (expression -> LPAREN expression RPAREN .)
-    LESSTHAN_AND_EQUALITY reduce using rule 23 (expression -> LPAREN expression RPAREN .)
-    GREATERTHAN_AND_EQUALITY reduce using rule 23 (expression -> LPAREN expression RPAREN .)
-    PLUS            reduce using rule 23 (expression -> LPAREN expression RPAREN .)
-    MINUS           reduce using rule 23 (expression -> LPAREN expression RPAREN .)
-    TIMES           reduce using rule 23 (expression -> LPAREN expression RPAREN .)
-    DIVIDE          reduce using rule 23 (expression -> LPAREN expression RPAREN .)
-    MODULO          reduce using rule 23 (expression -> LPAREN expression RPAREN .)
-    LBRACKET        reduce using rule 23 (expression -> LPAREN expression RPAREN .)
-    RPAREN          reduce using rule 23 (expression -> LPAREN expression RPAREN .)
+    EQUALITY        reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    NON_EQUALITY    reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    LESSTHAN        reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    GREATERTHAN     reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    LESSTHAN_AND_EQUALITY reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    GREATERTHAN_AND_EQUALITY reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    MODULO          reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    LBRACKET        reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    SEMICOLON       reduce using rule 22 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 22 (expression -> LPAREN expression RPAREN .)
 
 
 state 48
 
-    (4) statement -> IF expression body ELSE . body
-    (5) statement -> IF expression body ELSE . statement
-    (6) body -> . LBRACKET bloc RBRACKET
-    (3) statement -> . IF expression body
-    (4) statement -> . IF expression body ELSE body
-    (5) statement -> . IF expression body ELSE statement
-    (7) statement -> . WHILE expression body
-    (8) statement -> . FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
-    (9) statement -> . NAME EQUAL expression SEMICOLON
-    (10) statement -> . expression SEMICOLON
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
+    (8) statement -> NAME EQUAL expression SEMICOLON .
 
-    LBRACKET        shift and go to state 32
-    IF              shift and go to state 3
-    WHILE           shift and go to state 5
-    FOR             shift and go to state 6
-    NAME            shift and go to state 7
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
+    RBRACKET        reduce using rule 8 (statement -> NAME EQUAL expression SEMICOLON .)
+    IF              reduce using rule 8 (statement -> NAME EQUAL expression SEMICOLON .)
+    WHILE           reduce using rule 8 (statement -> NAME EQUAL expression SEMICOLON .)
+    FOR             reduce using rule 8 (statement -> NAME EQUAL expression SEMICOLON .)
+    NAME            reduce using rule 8 (statement -> NAME EQUAL expression SEMICOLON .)
+    MINUS           reduce using rule 8 (statement -> NAME EQUAL expression SEMICOLON .)
+    LPAREN          reduce using rule 8 (statement -> NAME EQUAL expression SEMICOLON .)
+    NUMBER          reduce using rule 8 (statement -> NAME EQUAL expression SEMICOLON .)
+    $end            reduce using rule 8 (statement -> NAME EQUAL expression SEMICOLON .)
 
-    expression                     shift and go to state 4
-    body                           shift and go to state 52
-    statement                      shift and go to state 53
 
 state 49
 
-    (6) body -> LBRACKET bloc . RBRACKET
+    (5) body -> LBRACKET bloc . RBRACKET
     (1) bloc -> bloc . statement
-    (3) statement -> . IF expression body
-    (4) statement -> . IF expression body ELSE body
-    (5) statement -> . IF expression body ELSE statement
-    (7) statement -> . WHILE expression body
-    (8) statement -> . FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
-    (9) statement -> . NAME EQUAL expression SEMICOLON
-    (10) statement -> . expression SEMICOLON
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
+    (3) statement -> . IF expression LBRACKET bloc RBRACKET
+    (4) statement -> . IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET
+    (6) statement -> . WHILE expression body
+    (7) statement -> . FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
+    (8) statement -> . NAME EQUAL expression SEMICOLON
+    (9) statement -> . expression SEMICOLON
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
 
-    RBRACKET        shift and go to state 54
-    IF              shift and go to state 3
-    WHILE           shift and go to state 5
-    FOR             shift and go to state 6
-    NAME            shift and go to state 7
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
+    RBRACKET        shift and go to state 52
+    IF              shift and go to state 6
+    WHILE           shift and go to state 2
+    FOR             shift and go to state 4
+    NAME            shift and go to state 1
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
 
-    statement                      shift and go to state 11
-    expression                     shift and go to state 4
+    expression                     shift and go to state 3
+    statement                      shift and go to state 27
 
 state 50
 
-    (8) statement -> FOR NAME EQUAL expression . SEMICOLON expression SEMICOLON expression body
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (7) statement -> FOR NAME EQUAL expression . SEMICOLON expression SEMICOLON expression body
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    SEMICOLON       shift and go to state 55
-    EQUALITY        shift and go to state 15
+    SEMICOLON       shift and go to state 53
+    EQUALITY        shift and go to state 22
     NON_EQUALITY    shift and go to state 16
-    LESSTHAN        shift and go to state 17
-    GREATERTHAN     shift and go to state 18
+    LESSTHAN        shift and go to state 14
+    GREATERTHAN     shift and go to state 25
     LESSTHAN_AND_EQUALITY shift and go to state 19
-    GREATERTHAN_AND_EQUALITY shift and go to state 20
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
-    MODULO          shift and go to state 25
+    GREATERTHAN_AND_EQUALITY shift and go to state 17
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
+    MODULO          shift and go to state 23
 
 
 state 51
 
-    (9) statement -> NAME EQUAL expression SEMICOLON .
+    (3) statement -> IF expression LBRACKET bloc . RBRACKET
+    (4) statement -> IF expression LBRACKET bloc . RBRACKET ELSE LBRACKET bloc RBRACKET
+    (1) bloc -> bloc . statement
+    (3) statement -> . IF expression LBRACKET bloc RBRACKET
+    (4) statement -> . IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET
+    (6) statement -> . WHILE expression body
+    (7) statement -> . FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
+    (8) statement -> . NAME EQUAL expression SEMICOLON
+    (9) statement -> . expression SEMICOLON
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
 
-    IF              reduce using rule 9 (statement -> NAME EQUAL expression SEMICOLON .)
-    WHILE           reduce using rule 9 (statement -> NAME EQUAL expression SEMICOLON .)
-    FOR             reduce using rule 9 (statement -> NAME EQUAL expression SEMICOLON .)
-    NAME            reduce using rule 9 (statement -> NAME EQUAL expression SEMICOLON .)
-    MINUS           reduce using rule 9 (statement -> NAME EQUAL expression SEMICOLON .)
-    LPAREN          reduce using rule 9 (statement -> NAME EQUAL expression SEMICOLON .)
-    NUMBER          reduce using rule 9 (statement -> NAME EQUAL expression SEMICOLON .)
-    $end            reduce using rule 9 (statement -> NAME EQUAL expression SEMICOLON .)
-    RBRACKET        reduce using rule 9 (statement -> NAME EQUAL expression SEMICOLON .)
+    RBRACKET        shift and go to state 54
+    IF              shift and go to state 6
+    WHILE           shift and go to state 2
+    FOR             shift and go to state 4
+    NAME            shift and go to state 1
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
 
+    expression                     shift and go to state 3
+    statement                      shift and go to state 27
 
 state 52
 
-    (4) statement -> IF expression body ELSE body .
+    (5) body -> LBRACKET bloc RBRACKET .
 
-    IF              reduce using rule 4 (statement -> IF expression body ELSE body .)
-    WHILE           reduce using rule 4 (statement -> IF expression body ELSE body .)
-    FOR             reduce using rule 4 (statement -> IF expression body ELSE body .)
-    NAME            reduce using rule 4 (statement -> IF expression body ELSE body .)
-    MINUS           reduce using rule 4 (statement -> IF expression body ELSE body .)
-    LPAREN          reduce using rule 4 (statement -> IF expression body ELSE body .)
-    NUMBER          reduce using rule 4 (statement -> IF expression body ELSE body .)
-    $end            reduce using rule 4 (statement -> IF expression body ELSE body .)
-    RBRACKET        reduce using rule 4 (statement -> IF expression body ELSE body .)
+    IF              reduce using rule 5 (body -> LBRACKET bloc RBRACKET .)
+    WHILE           reduce using rule 5 (body -> LBRACKET bloc RBRACKET .)
+    FOR             reduce using rule 5 (body -> LBRACKET bloc RBRACKET .)
+    NAME            reduce using rule 5 (body -> LBRACKET bloc RBRACKET .)
+    MINUS           reduce using rule 5 (body -> LBRACKET bloc RBRACKET .)
+    LPAREN          reduce using rule 5 (body -> LBRACKET bloc RBRACKET .)
+    NUMBER          reduce using rule 5 (body -> LBRACKET bloc RBRACKET .)
+    $end            reduce using rule 5 (body -> LBRACKET bloc RBRACKET .)
+    RBRACKET        reduce using rule 5 (body -> LBRACKET bloc RBRACKET .)
 
 
 state 53
 
-    (5) statement -> IF expression body ELSE statement .
+    (7) statement -> FOR NAME EQUAL expression SEMICOLON . expression SEMICOLON expression body
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
 
-    IF              reduce using rule 5 (statement -> IF expression body ELSE statement .)
-    WHILE           reduce using rule 5 (statement -> IF expression body ELSE statement .)
-    FOR             reduce using rule 5 (statement -> IF expression body ELSE statement .)
-    NAME            reduce using rule 5 (statement -> IF expression body ELSE statement .)
-    MINUS           reduce using rule 5 (statement -> IF expression body ELSE statement .)
-    LPAREN          reduce using rule 5 (statement -> IF expression body ELSE statement .)
-    NUMBER          reduce using rule 5 (statement -> IF expression body ELSE statement .)
-    $end            reduce using rule 5 (statement -> IF expression body ELSE statement .)
-    RBRACKET        reduce using rule 5 (statement -> IF expression body ELSE statement .)
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
 
+    expression                     shift and go to state 55
 
 state 54
 
-    (6) body -> LBRACKET bloc RBRACKET .
+    (3) statement -> IF expression LBRACKET bloc RBRACKET .
+    (4) statement -> IF expression LBRACKET bloc RBRACKET . ELSE LBRACKET bloc RBRACKET
 
-    ELSE            reduce using rule 6 (body -> LBRACKET bloc RBRACKET .)
-    IF              reduce using rule 6 (body -> LBRACKET bloc RBRACKET .)
-    WHILE           reduce using rule 6 (body -> LBRACKET bloc RBRACKET .)
-    FOR             reduce using rule 6 (body -> LBRACKET bloc RBRACKET .)
-    NAME            reduce using rule 6 (body -> LBRACKET bloc RBRACKET .)
-    MINUS           reduce using rule 6 (body -> LBRACKET bloc RBRACKET .)
-    LPAREN          reduce using rule 6 (body -> LBRACKET bloc RBRACKET .)
-    NUMBER          reduce using rule 6 (body -> LBRACKET bloc RBRACKET .)
-    $end            reduce using rule 6 (body -> LBRACKET bloc RBRACKET .)
-    RBRACKET        reduce using rule 6 (body -> LBRACKET bloc RBRACKET .)
+    RBRACKET        reduce using rule 3 (statement -> IF expression LBRACKET bloc RBRACKET .)
+    IF              reduce using rule 3 (statement -> IF expression LBRACKET bloc RBRACKET .)
+    WHILE           reduce using rule 3 (statement -> IF expression LBRACKET bloc RBRACKET .)
+    FOR             reduce using rule 3 (statement -> IF expression LBRACKET bloc RBRACKET .)
+    NAME            reduce using rule 3 (statement -> IF expression LBRACKET bloc RBRACKET .)
+    MINUS           reduce using rule 3 (statement -> IF expression LBRACKET bloc RBRACKET .)
+    LPAREN          reduce using rule 3 (statement -> IF expression LBRACKET bloc RBRACKET .)
+    NUMBER          reduce using rule 3 (statement -> IF expression LBRACKET bloc RBRACKET .)
+    $end            reduce using rule 3 (statement -> IF expression LBRACKET bloc RBRACKET .)
+    ELSE            shift and go to state 56
 
 
 state 55
 
-    (8) statement -> FOR NAME EQUAL expression SEMICOLON . expression SEMICOLON expression body
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
+    (7) statement -> FOR NAME EQUAL expression SEMICOLON expression . SEMICOLON expression body
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
 
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
+    SEMICOLON       shift and go to state 57
+    EQUALITY        shift and go to state 22
+    NON_EQUALITY    shift and go to state 16
+    LESSTHAN        shift and go to state 14
+    GREATERTHAN     shift and go to state 25
+    LESSTHAN_AND_EQUALITY shift and go to state 19
+    GREATERTHAN_AND_EQUALITY shift and go to state 17
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
+    MODULO          shift and go to state 23
 
-    expression                     shift and go to state 56
 
 state 56
 
-    (8) statement -> FOR NAME EQUAL expression SEMICOLON expression . SEMICOLON expression body
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
+    (4) statement -> IF expression LBRACKET bloc RBRACKET ELSE . LBRACKET bloc RBRACKET
 
-    SEMICOLON       shift and go to state 57
-    EQUALITY        shift and go to state 15
-    NON_EQUALITY    shift and go to state 16
-    LESSTHAN        shift and go to state 17
-    GREATERTHAN     shift and go to state 18
-    LESSTHAN_AND_EQUALITY shift and go to state 19
-    GREATERTHAN_AND_EQUALITY shift and go to state 20
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
-    MODULO          shift and go to state 25
+    LBRACKET        shift and go to state 58
 
 
 state 57
 
-    (8) statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON . expression body
-    (11) expression -> . expression EQUALITY expression
-    (12) expression -> . expression NON_EQUALITY expression
-    (13) expression -> . expression LESSTHAN expression
-    (14) expression -> . expression GREATERTHAN expression
-    (15) expression -> . expression LESSTHAN_AND_EQUALITY expression
-    (16) expression -> . expression GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> . expression PLUS expression
-    (18) expression -> . expression MINUS expression
-    (19) expression -> . expression TIMES expression
-    (20) expression -> . expression DIVIDE expression
-    (21) expression -> . expression MODULO expression
-    (22) expression -> . MINUS expression
-    (23) expression -> . LPAREN expression RPAREN
-    (24) expression -> . NUMBER
-    (25) expression -> . NAME
+    (7) statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON . expression body
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
 
-    MINUS           shift and go to state 8
-    LPAREN          shift and go to state 9
-    NUMBER          shift and go to state 10
-    NAME            shift and go to state 13
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+    NAME            shift and go to state 12
 
-    expression                     shift and go to state 58
+    expression                     shift and go to state 59
 
 state 58
 
-    (8) statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression . body
-    (11) expression -> expression . EQUALITY expression
-    (12) expression -> expression . NON_EQUALITY expression
-    (13) expression -> expression . LESSTHAN expression
-    (14) expression -> expression . GREATERTHAN expression
-    (15) expression -> expression . LESSTHAN_AND_EQUALITY expression
-    (16) expression -> expression . GREATERTHAN_AND_EQUALITY expression
-    (17) expression -> expression . PLUS expression
-    (18) expression -> expression . MINUS expression
-    (19) expression -> expression . TIMES expression
-    (20) expression -> expression . DIVIDE expression
-    (21) expression -> expression . MODULO expression
-    (6) body -> . LBRACKET bloc RBRACKET
+    (4) statement -> IF expression LBRACKET bloc RBRACKET ELSE LBRACKET . bloc RBRACKET
+    (1) bloc -> . bloc statement
+    (2) bloc -> . statement
+    (3) statement -> . IF expression LBRACKET bloc RBRACKET
+    (4) statement -> . IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET
+    (6) statement -> . WHILE expression body
+    (7) statement -> . FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
+    (8) statement -> . NAME EQUAL expression SEMICOLON
+    (9) statement -> . expression SEMICOLON
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
 
-    EQUALITY        shift and go to state 15
-    NON_EQUALITY    shift and go to state 16
-    LESSTHAN        shift and go to state 17
-    GREATERTHAN     shift and go to state 18
-    LESSTHAN_AND_EQUALITY shift and go to state 19
-    GREATERTHAN_AND_EQUALITY shift and go to state 20
-    PLUS            shift and go to state 21
-    MINUS           shift and go to state 22
-    TIMES           shift and go to state 23
-    DIVIDE          shift and go to state 24
-    MODULO          shift and go to state 25
-    LBRACKET        shift and go to state 32
+    IF              shift and go to state 6
+    WHILE           shift and go to state 2
+    FOR             shift and go to state 4
+    NAME            shift and go to state 1
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
 
-    body                           shift and go to state 59
+    bloc                           shift and go to state 60
+    expression                     shift and go to state 3
+    statement                      shift and go to state 9
 
 state 59
 
-    (8) statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .
+    (7) statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression . body
+    (10) expression -> expression . EQUALITY expression
+    (11) expression -> expression . NON_EQUALITY expression
+    (12) expression -> expression . LESSTHAN expression
+    (13) expression -> expression . GREATERTHAN expression
+    (14) expression -> expression . LESSTHAN_AND_EQUALITY expression
+    (15) expression -> expression . GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> expression . PLUS expression
+    (17) expression -> expression . MINUS expression
+    (18) expression -> expression . TIMES expression
+    (19) expression -> expression . DIVIDE expression
+    (20) expression -> expression . MODULO expression
+    (5) body -> . LBRACKET bloc RBRACKET
 
-    IF              reduce using rule 8 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
-    WHILE           reduce using rule 8 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
-    FOR             reduce using rule 8 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
-    NAME            reduce using rule 8 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
-    MINUS           reduce using rule 8 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
-    LPAREN          reduce using rule 8 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
-    NUMBER          reduce using rule 8 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
-    $end            reduce using rule 8 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
-    RBRACKET        reduce using rule 8 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
+    EQUALITY        shift and go to state 22
+    NON_EQUALITY    shift and go to state 16
+    LESSTHAN        shift and go to state 14
+    GREATERTHAN     shift and go to state 25
+    LESSTHAN_AND_EQUALITY shift and go to state 19
+    GREATERTHAN_AND_EQUALITY shift and go to state 17
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 15
+    DIVIDE          shift and go to state 20
+    MODULO          shift and go to state 23
+    LBRACKET        shift and go to state 32
+
+    body                           shift and go to state 61
+
+state 60
+
+    (4) statement -> IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc . RBRACKET
+    (1) bloc -> bloc . statement
+    (3) statement -> . IF expression LBRACKET bloc RBRACKET
+    (4) statement -> . IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET
+    (6) statement -> . WHILE expression body
+    (7) statement -> . FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body
+    (8) statement -> . NAME EQUAL expression SEMICOLON
+    (9) statement -> . expression SEMICOLON
+    (10) expression -> . expression EQUALITY expression
+    (11) expression -> . expression NON_EQUALITY expression
+    (12) expression -> . expression LESSTHAN expression
+    (13) expression -> . expression GREATERTHAN expression
+    (14) expression -> . expression LESSTHAN_AND_EQUALITY expression
+    (15) expression -> . expression GREATERTHAN_AND_EQUALITY expression
+    (16) expression -> . expression PLUS expression
+    (17) expression -> . expression MINUS expression
+    (18) expression -> . expression TIMES expression
+    (19) expression -> . expression DIVIDE expression
+    (20) expression -> . expression MODULO expression
+    (21) expression -> . MINUS expression
+    (22) expression -> . LPAREN expression RPAREN
+    (23) expression -> . NUMBER
+    (24) expression -> . NAME
+
+    RBRACKET        shift and go to state 62
+    IF              shift and go to state 6
+    WHILE           shift and go to state 2
+    FOR             shift and go to state 4
+    NAME            shift and go to state 1
+    MINUS           shift and go to state 10
+    LPAREN          shift and go to state 8
+    NUMBER          shift and go to state 7
+
+    expression                     shift and go to state 3
+    statement                      shift and go to state 27
+
+state 61
+
+    (7) statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .
+
+    RBRACKET        reduce using rule 7 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
+    IF              reduce using rule 7 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
+    WHILE           reduce using rule 7 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
+    FOR             reduce using rule 7 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
+    NAME            reduce using rule 7 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
+    MINUS           reduce using rule 7 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
+    LPAREN          reduce using rule 7 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
+    NUMBER          reduce using rule 7 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
+    $end            reduce using rule 7 (statement -> FOR NAME EQUAL expression SEMICOLON expression SEMICOLON expression body .)
+
+
+state 62
+
+    (4) statement -> IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET .
+
+    RBRACKET        reduce using rule 4 (statement -> IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET .)
+    IF              reduce using rule 4 (statement -> IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET .)
+    WHILE           reduce using rule 4 (statement -> IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET .)
+    FOR             reduce using rule 4 (statement -> IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET .)
+    NAME            reduce using rule 4 (statement -> IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET .)
+    MINUS           reduce using rule 4 (statement -> IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET .)
+    LPAREN          reduce using rule 4 (statement -> IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET .)
+    NUMBER          reduce using rule 4 (statement -> IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET .)
+    $end            reduce using rule 4 (statement -> IF expression LBRACKET bloc RBRACKET ELSE LBRACKET bloc RBRACKET .)
 
 WARNING: 
 WARNING: Conflicts:
